@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">home</property>
+      <property
+         name="page">/home.jspx</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>home&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">55.02832</property>
+      <property
+         name="x">286.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">DashBoard</property>
+      <property
+         name="page">/DashBoard.jspx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>DashBoard&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">55.890625</property>
+      <property
+         name="x">44.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">toHome</property>
+      <property
+         name="sdm:polyPoints">R46,85.5,52.04004,244.98108,51.177734,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">toDashBoard</property>
+      <property
+         name="sdm:polyPoints">L54,245.0,58.177734,85.51892,59.04004,R54</property>
+   </ControlFlowCase>
+</SDM>

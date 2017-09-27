@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="payCertBTF_payCertBTF_refreshCertificationPageDef"
+                Package="oracle.apps.uikit.TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="refreshCertification" RequiresUpdateModel="true"
+            Action="invokeMethod" MethodName="refreshCertification"
+            IsViewObjectMethod="false" DataControl="payCertAMDataControl"
+            InstanceName="payCertAMDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

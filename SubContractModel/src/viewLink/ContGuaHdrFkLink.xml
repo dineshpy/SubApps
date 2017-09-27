@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContGuaHdrFkLink"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  EntityAssociation="Assoc.ContGuaHdrFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="XxscContractHeadersVO"
+    Cardinality="1"
+    Owner="view.XxscContractHeadersVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="XxscContractHeadersVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="view.XxscContractHeadersVO.ContHeaderId"/>
+      <Item Value="view.XxscContractHeadersVO.Version"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XxscContractGuaranteeVO"
+    Cardinality="-1"
+    Owner="view.XxscContractGuaranteeVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="XxscContractGuaranteeVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="view.XxscContractGuaranteeVO.ContHeaderId"/>
+      <Item Value="view.XxscContractGuaranteeVO.Version"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

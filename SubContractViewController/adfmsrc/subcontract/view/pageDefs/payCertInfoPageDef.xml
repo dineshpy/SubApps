@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="payCertInfoPageDef"
+                Package="subcontract.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxscCertificationHeadersVO1" RangeSize="25"
+              DataControl="payCertAMDataControl"
+              id="XxscCertificationHeadersVO1Iterator"/>
+    <iterator Binds="XxscCertificationLinesVO1" RangeSize="25"
+              DataControl="payCertAMDataControl"
+              id="XxscCertificationLinesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="CurPayAmount">
+      <AttrNames>
+        <Item Value="CurPayAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="CurRet">
+      <AttrNames>
+        <Item Value="CurRet"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="CurAdvRec">
+      <AttrNames>
+        <Item Value="CurAdvRec"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="CurCertification">
+      <AttrNames>
+        <Item Value="CurCertification"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="InvoiceDate">
+      <AttrNames>
+        <Item Value="InvoiceDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="InvoiceNum">
+      <AttrNames>
+        <Item Value="InvoiceNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="InvoiceRecDate">
+      <AttrNames>
+        <Item Value="InvoiceRecDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxscCertificationLinesVO1Iterator"
+          id="XxscCertificationLinesVO1">
+      <nodeDefinition DefName="view.XxscCertificationLinesVO"
+                      Name="XxscCertificationLinesVO10">
+        <AttrNames>
+          <Item Value="CertLineId"/>
+          <Item Value="CertHeaderId"/>
+          <Item Value="ContractHeaderId"/>
+          <Item Value="ContLineId"/>
+          <Item Value="Version"/>
+          <Item Value="Trans_ConLine_UOM"/>
+          <Item Value="Trans_ConLine_QTY"/>
+          <Item Value="Trans_ConLine_Rate"/>
+          <Item Value="Trans_ConLine_Amount"/>
+          <Item Value="AppAmount"/>
+          <Item Value="AppPerc"/>
+          <Item Value="AppSupInsQty"/>
+          <Item Value="AppSupOnlyQty"/>
+          <Item Value="AppTotQty"/>
+          <Item Value="PrevPerc"/>
+          <Item Value="PrevSupOnlyQty"/>
+          <Item Value="PrevSupInsQty"/>
+          <Item Value="PrevTotQty"/>
+          <Item Value="PrevAmount"/>
+          <Item Value="CurrPerc"/>
+          <Item Value="CurrSupOnlyQty"/>
+          <Item Value="CurrSupInsQty"/>
+          <Item Value="CurrTotQty"/>
+          <Item Value="CurrAmount"/>
+          <Item Value="CumPerc"/>
+          <Item Value="CumSupOnlyQty"/>
+          <Item Value="CumSupInsQty"/>
+          <Item Value="CumTotQty"/>
+          <Item Value="CumAmount"/>
+          <Item Value="OrgId"/>
+          <Item Value="Trans_ConLine_ItemDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

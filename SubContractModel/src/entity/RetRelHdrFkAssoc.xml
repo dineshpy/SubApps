@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RetRelHdrFkAssoc"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="XxscCertificationHeadersEO1"
+    Cardinality="1"
+    Source="true"
+    Owner="entity.XxscCertificationHeadersEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XxscCertificationHeadersEO1"/>
+      <Attr Name="_foreignKey"
+        Value="entity.XxscCertificationHeadersEO.XxscCertificationHeadersPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxscCertificationHeadersEO.CertHeaderId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="XxscRetReleasesEO1"
+    Cardinality="-1"
+    Owner="entity.XxscRetReleasesEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="XxscRetReleasesEO1"/>
+      <Attr Name="_foreignKey" Value="entity.XxscRetReleasesEO.RetRelHdrFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="entity.XxscRetReleasesEO.CertHeaderId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

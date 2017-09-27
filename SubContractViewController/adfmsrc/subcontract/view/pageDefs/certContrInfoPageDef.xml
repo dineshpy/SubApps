@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="certContrInfoPageDef"
+                Package="subcontract.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxscCertificationHeadersVO1" RangeSize="25"
+              DataControl="payCertAMDataControl"
+              id="XxscCertificationHeadersVO1Iterator"/>
+    <iterator Binds="XxscCertificationLinesVO1" RangeSize="25"
+              DataControl="payCertAMDataControl"
+              id="XxscCertificationLinesVO1Iterator"/>
+    <iterator id="XxscContractLinesVO2Iterator" Binds="XxscContractLinesVO2"
+              DataControl="payCertAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="CertificationNumber">
+      <AttrNames>
+        <Item Value="CertificationNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="CertificationDate">
+      <AttrNames>
+        <Item Value="CertificationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_PaymentType" id="PaymentType" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_CertificationStatus" id="CertificationStatus"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_ApprovalStatus" id="ApprovalStatus" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <tree IterBinding="XxscCertificationLinesVO1Iterator"
+          id="XxscCertificationLinesVO1">
+      <nodeDefinition DefName="view.XxscCertificationLinesVO"
+                      Name="XxscCertificationLinesVO10">
+        <AttrNames>
+          <Item Value="CertLineId"/>
+          <Item Value="CertHeaderId"/>
+          <Item Value="ContractHeaderId"/>
+          <Item Value="ContLineId"/>
+          <Item Value="Version"/>
+          <Item Value="Trans_ConLine_UOM"/>
+          <Item Value="Trans_ConLine_QTY"/>
+          <Item Value="Trans_ConLine_Rate"/>
+          <Item Value="Trans_ConLine_Amount"/>
+          <Item Value="AppAmount"/>
+          <Item Value="AppPerc"/>
+          <Item Value="AppSupInsQty"/>
+          <Item Value="AppSupOnlyQty"/>
+          <Item Value="AppTotQty"/>
+          <Item Value="PrevPerc"/>
+          <Item Value="PrevSupOnlyQty"/>
+          <Item Value="PrevSupInsQty"/>
+          <Item Value="PrevTotQty"/>
+          <Item Value="PrevAmount"/>
+          <Item Value="CurrPerc"/>
+          <Item Value="CurrSupOnlyQty"/>
+          <Item Value="CurrSupInsQty"/>
+          <Item Value="CurrTotQty"/>
+          <Item Value="CurrAmount"/>
+          <Item Value="CumPerc"/>
+          <Item Value="CumSupOnlyQty"/>
+          <Item Value="CumSupInsQty"/>
+          <Item Value="CumTotQty"/>
+          <Item Value="CumAmount"/>
+          <Item Value="OrgId"/>
+          <Item Value="Trans_ConLine_ItemDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_projectNumber">
+      <AttrNames>
+        <Item Value="Trans_projectNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_projectName">
+      <AttrNames>
+        <Item Value="Trans_projectName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_ContractName">
+      <AttrNames>
+        <Item Value="Trans_ContractName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_SupplierName">
+      <AttrNames>
+        <Item Value="Trans_SupplierName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_SupplierSite">
+      <AttrNames>
+        <Item Value="Trans_SupplierSite"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_Adva_Reco_Per">
+      <AttrNames>
+        <Item Value="Trans_Adva_Reco_Per"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_Advan_Recovery">
+      <AttrNames>
+        <Item Value="Trans_Advan_Recovery"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_Retension">
+      <AttrNames>
+        <Item Value="Trans_Retension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_Retension_Per">
+      <AttrNames>
+        <Item Value="Trans_Retension_Per"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_Variation">
+      <AttrNames>
+        <Item Value="Trans_Variation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_Revis_Contr_Amo">
+      <AttrNames>
+        <Item Value="Trans_Revis_Contr_Amo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscCertificationHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_OrgId" id="OrgId1" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <listOfValues StaticList="false"
+                  IterBinding="XxscCertificationHeadersVO1Iterator"
+                  Uses="LOV_Trans_ContractNumber" id="Trans_ContractNumber"/>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="Trans_ContractAmount">
+      <AttrNames>
+        <Item Value="Trans_ContractAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscCertificationHeadersVO1Iterator"
+                     id="ContHeaderId">
+      <AttrNames>
+        <Item Value="ContHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

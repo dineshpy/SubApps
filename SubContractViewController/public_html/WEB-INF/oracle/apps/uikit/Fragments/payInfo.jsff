@@ -1,0 +1,458 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelStretchLayout id="psl1"
+                             styleClass="page-container AFStretchWidth"
+                             inlineStyle="height:3000px;">
+        <f:facet name="center">
+          <af:panelGroupLayout id="pgl4" layout="scroll">
+            <af:panelGroupLayout id="pgl2" layout="horizontal">
+              <af:panelGroupLayout id="pgl3">
+                <af:spacer width="10" height="10" id="s4"/>
+                <af:panelGroupLayout id="pgl1" layout="horizontal">
+                  <af:spacer width="10" height="10" id="s1"/>
+                  <af:outputText value="Payment Term" id="ot1"
+                                 inlineStyle="font-weight:bold; font-size:medium;"/>
+                  <af:spacer width="10" height="10" id="s9" rendered="false"/>
+                  <af:activeOutputText id="aot1"
+                                       inlineStyle="font-weight:bolder; font-size:large; color:#1367AE;"
+                                       value="#{bindings.ContractNum.inputValue}"
+                                       rendered="false"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+              <af:spacer width="1013" height="10" id="s2"/>
+              <af:panelGroupLayout id="panelGroupLayout1" layout="vertical">
+                <af:spacer width="10" height="10" id="spacer1"/>
+                <af:panelGroupLayout id="panelGroupLayout2" layout="horizontal">
+                  <af:spacer width="10" height="10" id="s3"/>
+                  <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                     id="tbb1"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="10" id="s5"/>
+            <af:separator id="s6" inlineStyle="border-color:#C1C1C1;"/>
+            <af:spacer width="10" height="10" id="s7"/>
+            <af:panelGroupLayout id="pgl5" styleClass="AFStretchWidth">
+              <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                        id="t1" inlineStyle="padding-left:280px"/>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="10" id="s8"/>
+            <af:panelBox text="Payment Term" id="pb6" showDisclosure="false"
+                         inlineStyle="background-color:#b4d3ed;">
+              <f:facet name="toolbar"/>
+              <af:spacer width="10" height="10" id="s13"/>
+              <af:panelGroupLayout id="pgl6" layout="horizontal">
+                <af:spacer width="200" height="10" id="s25"/>
+                <af:panelBox text="Liquidated/Penlaty" id="pb1" showDisclosure="false">
+                  <f:facet name="toolbar"/>
+                  <af:panelFormLayout id="pfl2" rows="3">
+                    <af:panelLabelAndMessage label="#{bindings.LiqDamagePercent.hints.label}" id="plam1">
+                      <af:panelGroupLayout id="pgl7" layout="horizontal">
+                        <af:inputText value="#{bindings.LiqDamagePercent.inputValue}"
+                                      label="#{bindings.LiqDamagePercent.hints.label}"
+                                      required="#{bindings.LiqDamagePercent.hints.mandatory}"
+                                      columns="#{bindings.LiqDamagePercent.hints.displayWidth}"
+                                      maximumLength="#{bindings.LiqDamagePercent.hints.precision}"
+                                      shortDesc="#{bindings.LiqDamagePercent.hints.tooltip}"
+                                      id="it1" simple="true"
+                                      contentStyle="width:50px;text-align:right;">
+                          <f:validator binding="#{bindings.LiqDamagePercent.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.LiqDamagePercent.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"
+                                                  maximum="100.0"/>
+                        </af:inputText>
+                        <af:spacer width="5" height="10" id="s16"/>
+                        <af:inputText id="it38" simple="true" value="%"
+                                      disabled="true"
+                                      contentStyle="width:25px;"/>
+                        <af:spacer width="5" height="10" id="s18"/>
+                        <af:inputText value="#{bindings.LiqDamageAmount.inputValue}"
+                                      label="#{bindings.LiqDamageAmount.hints.label}"
+                                      required="#{bindings.LiqDamageAmount.hints.mandatory}"
+                                      columns="#{bindings.LiqDamageAmount.hints.displayWidth}"
+                                      maximumLength="#{bindings.LiqDamageAmount.hints.precision}"
+                                      shortDesc="#{bindings.LiqDamageAmount.hints.tooltip}"
+                                      id="it2"
+                                      contentStyle="width:115px;text-align:right;"
+                                      simple="true">
+                          <f:validator binding="#{bindings.LiqDamageAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.LiqDamageAmount.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                      </af:panelGroupLayout>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.PenaltyPercent.hints.label}" id="plam2">
+                      <af:panelGroupLayout id="pgl8" layout="horizontal">
+                        <af:inputText value="#{bindings.PenaltyPercent.inputValue}"
+                                      label="#{bindings.PenaltyPercent.hints.label}"
+                                      required="#{bindings.PenaltyPercent.hints.mandatory}"
+                                      columns="#{bindings.PenaltyPercent.hints.displayWidth}"
+                                      maximumLength="#{bindings.PenaltyPercent.hints.precision}"
+                                      shortDesc="#{bindings.PenaltyPercent.hints.tooltip}"
+                                      id="it14" simple="true"
+                                      contentStyle="width:50px;text-align:right;">
+                          <f:validator binding="#{bindings.PenaltyPercent.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.PenaltyPercent.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"
+                                                  maximum="100.0"/>
+                        </af:inputText>
+                        <af:spacer width="5" height="10" id="s17"/>
+                        <af:inputText id="inputText1" simple="true" value="%"
+                                      disabled="true"
+                                      contentStyle="width:25px;"/>
+                        <af:spacer width="5" height="10" id="s19"/>
+                        <af:inputText value="#{bindings.PenaltyAmount.inputValue}"
+                                      label="#{bindings.PenaltyAmount.hints.label}"
+                                      required="#{bindings.PenaltyAmount.hints.mandatory}"
+                                      columns="#{bindings.PenaltyAmount.hints.displayWidth}"
+                                      maximumLength="#{bindings.PenaltyAmount.hints.precision}"
+                                      shortDesc="#{bindings.PenaltyAmount.hints.tooltip}"
+                                      id="it7"
+                                      contentStyle="width:115px;text-align:right;"
+                                      simple="true">
+                          <f:validator binding="#{bindings.PenaltyAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.PenaltyAmount.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                      </af:panelGroupLayout>
+                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.MinInterimPayment.inputValue}"
+                                  label="#{bindings.MinInterimPayment.hints.label}"
+                                  required="#{bindings.MinInterimPayment.hints.mandatory}"
+                                  columns="#{bindings.MinInterimPayment.hints.displayWidth}"
+                                  maximumLength="#{bindings.MinInterimPayment.hints.precision}"
+                                  shortDesc="#{bindings.MinInterimPayment.hints.tooltip}"
+                                  id="it11"
+                                  contentStyle="width:200px;text-align:right;">
+                      <f:validator binding="#{bindings.MinInterimPayment.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MinInterimPayment.format}"
+                                        minFractionDigits="2"
+                                        maxFractionDigits="2"/>
+                      <af:validateDoubleRange minimum="0.0"/>
+                    </af:inputText>
+                  </af:panelFormLayout>
+                  <af:spacer width="10" height="10" id="s10" rendered="false"/>
+                </af:panelBox>
+                <af:spacer width="50" height="10" id="s14"/>
+                <af:panelBox text="Retention / Release" id="pb3" showDisclosure="false">
+                  <f:facet name="toolbar"/>
+                  <af:panelFormLayout id="pfl3" rows="3" labelWidth="155">
+                    <af:panelLabelAndMessage label="#{bindings.RetenPercent.hints.label}" id="plam3">
+                      <af:panelGroupLayout id="pgl9" layout="horizontal">
+                        <af:inputText value="#{bindings.RetenPercent.inputValue}"
+                                      label="#{bindings.RetenPercent.hints.label}"
+                                      required="#{bindings.RetenPercent.hints.mandatory}"
+                                      columns="#{bindings.RetenPercent.hints.displayWidth}"
+                                      maximumLength="#{bindings.RetenPercent.hints.precision}"
+                                      shortDesc="#{bindings.RetenPercent.hints.tooltip}"
+                                      id="it6" simple="true"
+                                      contentStyle="width:50px;text-align:right;">
+                          <f:validator binding="#{bindings.RetenPercent.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.RetenPercent.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"
+                                                  maximum="100.0"/>
+                        </af:inputText>
+                        <af:spacer width="5" height="10" id="spacer2"/>
+                        <af:inputText id="inputText2" simple="true" value="%"
+                                      disabled="true"
+                                      contentStyle="width:25px;"/>
+                        <af:spacer width="5" height="10" id="s20"/>
+                        <af:inputText value="#{bindings.RetenAmount.inputValue}"
+                                      label="#{bindings.RetenAmount.hints.label}"
+                                      required="#{bindings.RetenAmount.hints.mandatory}"
+                                      columns="#{bindings.RetenAmount.hints.displayWidth}"
+                                      maximumLength="#{bindings.RetenAmount.hints.precision}"
+                                      shortDesc="#{bindings.RetenAmount.hints.tooltip}"
+                                      id="it13"
+                                      contentStyle="width:115px;text-align:right;"
+                                      simple="true">
+                          <f:validator binding="#{bindings.RetenAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.RetenAmount.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                      </af:panelGroupLayout>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.RelRetenPercent.hints.label}" id="plam4">
+                      <af:panelGroupLayout id="pgl10">
+                        <af:inputText value="#{bindings.RelRetenPercent.inputValue}"
+                                      label="#{bindings.RelRetenPercent.hints.label}"
+                                      required="#{bindings.RelRetenPercent.hints.mandatory}"
+                                      columns="#{bindings.RelRetenPercent.hints.displayWidth}"
+                                      maximumLength="#{bindings.RelRetenPercent.hints.precision}"
+                                      shortDesc="#{bindings.RelRetenPercent.hints.tooltip}"
+                                      id="it37" simple="true"
+                                      contentStyle="width:50px;text-align:right;">
+                          <f:validator binding="#{bindings.RelRetenPercent.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.RelRetenPercent.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"
+                                                  maximum="100.0"/>
+                        </af:inputText>
+                        <af:spacer width="5" height="10" id="spacer3"/>
+                        <af:inputText id="inputText3" simple="true" value="%"
+                                      disabled="true"
+                                      contentStyle="width:25px;"/>
+                        <af:spacer width="5" height="10" id="s21"/>
+                        <af:inputText value="#{bindings.RelRetenAmount.inputValue}"
+                                      label="#{bindings.RelRetenAmount.hints.label}"
+                                      required="#{bindings.RelRetenAmount.hints.mandatory}"
+                                      columns="#{bindings.RelRetenAmount.hints.displayWidth}"
+                                      maximumLength="#{bindings.RelRetenAmount.hints.precision}"
+                                      shortDesc="#{bindings.RelRetenAmount.hints.tooltip}"
+                                      id="it4"
+                                      contentStyle="width:115px;text-align:right;"
+                                      simple="true">
+                          <f:validator binding="#{bindings.RelRetenAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.RelRetenAmount.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                      </af:panelGroupLayout>
+                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.RelRetenBalPercent.inputValue}"
+                                  label="#{bindings.RelRetenBalPercent.hints.label}"
+                                  required="#{bindings.RelRetenBalPercent.hints.mandatory}"
+                                  columns="#{bindings.RelRetenBalPercent.hints.displayWidth}"
+                                  maximumLength="#{bindings.RelRetenBalPercent.hints.precision}"
+                                  shortDesc="#{bindings.RelRetenBalPercent.hints.tooltip}"
+                                  id="it3" rendered="false"
+                                  contentStyle="width:200px;text-align:right;">
+                      <f:validator binding="#{bindings.RelRetenBalPercent.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.RelRetenBalPercent.format}"
+                                        minFractionDigits="2"
+                                        maxFractionDigits="2"/>
+                      <af:validateDoubleRange minimum="0.0"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.RelRetenBalAmount.inputValue}"
+                                  label="#{bindings.RelRetenBalAmount.hints.label}"
+                                  required="#{bindings.RelRetenBalAmount.hints.mandatory}"
+                                  columns="#{bindings.RelRetenBalAmount.hints.displayWidth}"
+                                  maximumLength="#{bindings.RelRetenBalAmount.hints.precision}"
+                                  shortDesc="#{bindings.RelRetenBalAmount.hints.tooltip}"
+                                  id="it5" rendered="false"
+                                  contentStyle="width:200px;text-align:right;">
+                      <f:validator binding="#{bindings.RelRetenBalAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.RelRetenBalAmount.format}"
+                                        minFractionDigits="2"
+                                        maxFractionDigits="2"/>
+                      <af:validateDoubleRange minimum="0.0"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.RetRelType.inputValue}"
+                                        label="#{bindings.RetRelType.label}"
+                                        required="#{bindings.RetRelType.hints.mandatory}"
+                                        shortDesc="#{bindings.RetRelType.hints.tooltip}"
+                                        id="soc2" contentStyle="width:200px;">
+                      <f:selectItems value="#{bindings.RetRelType.items}"
+                                     id="si2"/>
+                    </af:selectOneChoice>
+                  </af:panelFormLayout>
+                </af:panelBox>
+                <af:spacer width="5" height="10" id="s15"/>
+              </af:panelGroupLayout>
+              <af:spacer width="10" height="10" id="s12"/>
+              <af:panelGroupLayout id="pgl15" layout="horizontal">
+                <af:spacer width="200" height="10" id="spacer11"/>
+                <af:panelBox text="Advance/Recovery" id="pb2"
+                             showDisclosure="false">
+                  <f:facet name="toolbar"/>
+                  <af:panelFormLayout id="pfl4" rows="2" labelWidth="155">
+                    <af:panelLabelAndMessage label="#{bindings.AdvPercent.hints.label}"
+                                             id="plam5">
+                      <af:panelGroupLayout id="pgl11" layout="horizontal">
+                        <af:inputText value="#{bindings.AdvPercent.inputValue}"
+                                      label="#{bindings.AdvPercent.hints.label}"
+                                      required="#{bindings.AdvPercent.hints.mandatory}"
+                                      columns="#{bindings.AdvPercent.hints.displayWidth}"
+                                      maximumLength="#{bindings.AdvPercent.hints.precision}"
+                                      shortDesc="#{bindings.AdvPercent.hints.tooltip}"
+                                      id="it10" simple="true"
+                                      contentStyle="width:50px;text-align:right;">
+                          <f:validator binding="#{bindings.AdvPercent.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AdvPercent.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"
+                                                  maximum="100.0"/>
+                        </af:inputText>
+                        <af:spacer width="5" height="10" id="spacer4"/>
+                        <af:inputText id="inputText4" simple="true" value="%"
+                                      disabled="true"
+                                      contentStyle="width:25px;"/>
+                        <af:spacer width="5" height="10" id="s22"/>
+                        <af:inputText value="#{bindings.AdvAmount.inputValue}"
+                                      label="#{bindings.AdvAmount.hints.label}"
+                                      required="#{bindings.AdvAmount.hints.mandatory}"
+                                      columns="#{bindings.AdvAmount.hints.displayWidth}"
+                                      maximumLength="#{bindings.AdvAmount.hints.precision}"
+                                      shortDesc="#{bindings.AdvAmount.hints.tooltip}"
+                                      id="it9"
+                                      contentStyle="width:115px;text-align:right;"
+                                      simple="true">
+                          <f:validator binding="#{bindings.AdvAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AdvAmount.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                      </af:panelGroupLayout>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.AdvRecoveryPercent.hints.label}"
+                                             id="plam6">
+                      <af:panelGroupLayout id="pgl12" layout="horizontal">
+                        <af:inputText value="#{bindings.AdvRecoveryPercent.inputValue}"
+                                      label="#{bindings.AdvRecoveryPercent.hints.label}"
+                                      required="#{bindings.AdvRecoveryPercent.hints.mandatory}"
+                                      columns="#{bindings.AdvRecoveryPercent.hints.displayWidth}"
+                                      maximumLength="#{bindings.AdvRecoveryPercent.hints.precision}"
+                                      shortDesc="#{bindings.AdvRecoveryPercent.hints.tooltip}"
+                                      id="it8" simple="true"
+                                      contentStyle="width:50px;text-align:right;">
+                          <f:validator binding="#{bindings.AdvRecoveryPercent.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AdvRecoveryPercent.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"
+                                                  maximum="100.0"/>
+                        </af:inputText>
+                        <af:spacer width="5" height="10" id="spacer5"/>
+                        <af:inputText id="inputText5" simple="true" value="%"
+                                      disabled="true"
+                                      contentStyle="width:25px;"/>
+                        <af:spacer width="5" height="10" id="s23"/>
+                        <af:inputText value="#{bindings.AdvRecoveryAmount.inputValue}"
+                                      label="#{bindings.AdvRecoveryAmount.hints.label}"
+                                      required="#{bindings.AdvRecoveryAmount.hints.mandatory}"
+                                      columns="#{bindings.AdvRecoveryAmount.hints.displayWidth}"
+                                      maximumLength="#{bindings.AdvRecoveryAmount.hints.precision}"
+                                      shortDesc="#{bindings.AdvRecoveryAmount.hints.tooltip}"
+                                      id="it12"
+                                      contentStyle="width:115px;text-align:right;"
+                                      simple="true">
+                          <f:validator binding="#{bindings.AdvRecoveryAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AdvRecoveryAmount.format}"
+                                            minFractionDigits="2"
+                                            maxFractionDigits="2"/>
+                          <af:validateDoubleRange minimum="0.0"/>
+                        </af:inputText>
+                      </af:panelGroupLayout>
+                    </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+                  <af:spacer width="10" height="32" id="s11" rendered="false"/>
+                </af:panelBox>
+                <af:spacer width="50" height="10" id="s24"/>
+                <af:panelBox text="Materials on site" id="pb4" showDisclosure="false">
+                  <f:facet name="toolbar"/>
+                  <af:panelFormLayout id="pfl7" rows="2">
+                    <af:panelLabelAndMessage label="#{bindings.MatOnsitePercent.hints.label}"
+                                             id="plam7">
+                      <af:panelGroupLayout id="pgl13" layout="horizontal">
+                        <af:inputText value="#{bindings.MatOnsitePercent.inputValue}"
+                                      label="#{bindings.MatOnsitePercent.hints.label}"
+                                      required="#{bindings.MatOnsitePercent.hints.mandatory}"
+                                      columns="#{bindings.MatOnsitePercent.hints.displayWidth}"
+                                      maximumLength="#{bindings.MatOnsitePercent.hints.precision}"
+                                      shortDesc="#{bindings.MatOnsitePercent.hints.tooltip}"
+                                      id="it23" simple="true"
+                                      contentStyle="width:50px;text-align:right;">
+                          <f:validator binding="#{bindings.MatOnsitePercent.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MatOnsitePercent.format}"/>
+                        </af:inputText>
+                        <af:spacer width="5" height="10" id="spacer6"/>
+                        <af:inputText id="inputText6" simple="true" value="%"
+                                      disabled="true"
+                                      contentStyle="width:25px;"/>
+                        <af:spacer width="5" height="10" id="spacer7"/>
+                        <af:inputText value="#{bindings.MaterialOnSite.inputValue}"
+                                      label="#{bindings.MaterialOnSite.hints.label}"
+                                      required="#{bindings.MaterialOnSite.hints.mandatory}"
+                                      columns="#{bindings.MaterialOnSite.hints.displayWidth}"
+                                      maximumLength="#{bindings.MaterialOnSite.hints.precision}"
+                                      shortDesc="#{bindings.MaterialOnSite.hints.tooltip}"
+                                      id="it45" simple="true"
+                                      contentStyle="width:115px;text-align:right;">
+                          <f:validator binding="#{bindings.MaterialOnSite.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MaterialOnSite.format}"/>
+                        </af:inputText>
+                      </af:panelGroupLayout>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.MatOnsiteRecPercent.hints.label}"
+                                             id="plam8">
+                      <af:panelGroupLayout id="pgl14" layout="horizontal">
+                        <af:inputText value="#{bindings.MatOnsiteRecPercent.inputValue}"
+                                      label="#{bindings.MatOnsiteRecPercent.hints.label}"
+                                      required="#{bindings.MatOnsiteRecPercent.hints.mandatory}"
+                                      columns="#{bindings.MatOnsiteRecPercent.hints.displayWidth}"
+                                      maximumLength="#{bindings.MatOnsiteRecPercent.hints.precision}"
+                                      shortDesc="#{bindings.MatOnsiteRecPercent.hints.tooltip}"
+                                      id="it46" simple="true"
+                                      contentStyle="width:50px;text-align:right;">
+                          <f:validator binding="#{bindings.MatOnsiteRecPercent.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MatOnsiteRecPercent.format}"/>
+                        </af:inputText>
+                        <af:spacer width="5" height="10" id="spacer8"/>
+                        <af:inputText id="inputText7" simple="true" value="%"
+                                      disabled="true"
+                                      contentStyle="width:25px;"/>
+                        <af:spacer width="5" height="10" id="spacer9"/>
+                        <af:inputText value="#{bindings.MaterialOnSiteRec.inputValue}"
+                                      label="#{bindings.MaterialOnSiteRec.hints.label}"
+                                      required="#{bindings.MaterialOnSiteRec.hints.mandatory}"
+                                      columns="#{bindings.MaterialOnSiteRec.hints.displayWidth}"
+                                      maximumLength="#{bindings.MaterialOnSiteRec.hints.precision}"
+                                      shortDesc="#{bindings.MaterialOnSiteRec.hints.tooltip}"
+                                      id="it47" simple="true"
+                                      contentStyle="width:115px;text-align:right;">
+                          <f:validator binding="#{bindings.MaterialOnSiteRec.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MaterialOnSiteRec.format}"/>
+                        </af:inputText>
+                      </af:panelGroupLayout>
+                    </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+                </af:panelBox>
+              </af:panelGroupLayout>
+              <af:spacer width="10" height="10" id="spacer10"/>
+            </af:panelBox>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelStretchLayout>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

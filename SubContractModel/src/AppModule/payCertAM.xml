@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="payCertAM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="AppModule.payCertAMImpl"
+  ComponentInterface="AppModule.common.payCertAM"
+  ClientProxyName="AppModule.client.payCertAMClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="AppModule.payCertAM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="XxscCertificationHeadersVO1"
+    ViewObjectName="view.XxscCertificationHeadersVO">
+    <ViewCriteriaUsage
+      Name="findByCerID"
+      FullName="view.XxscCertificationHeadersVO.findByCerID"/>
+    <ParameterMap>
+      <PIMap Variable="BV_CER_ID">
+        <TransientExpression><![CDATA[adf.context.sessionScope.CerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="XxscCertificationLinesVO1"
+    ViewObjectName="view.XxscCertificationLinesVO"/>
+  <ViewUsage
+    Name="XxscRetReleasesVO1"
+    ViewObjectName="view.XxscRetReleasesVO"/>
+  <ViewUsage
+    Name="contractROVO1"
+    ViewObjectName="ROVO.contractROVO"/>
+  <ViewUsage
+    Name="XxscContractLinesVO2"
+    ViewObjectName="view.XxscContractLinesVO"/>
+  <ViewUsage
+    Name="certificationSearchROVO1"
+    ViewObjectName="ROVO.certificationSearchROVO"/>
+  <ViewLinkUsage
+    Name="CertLineHdrFkLink1"
+    ViewLinkObjectName="view.CertLineHdrFkLink"
+    SrcViewUsageName="AppModule.payCertAM.XxscCertificationHeadersVO1"
+    DstViewUsageName="AppModule.payCertAM.XxscCertificationLinesVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="RetRelHdrFkLink1"
+    ViewLinkObjectName="view.RetRelHdrFkLink"
+    SrcViewUsageName="AppModule.payCertAM.XxscCertificationHeadersVO1"
+    DstViewUsageName="AppModule.payCertAM.XxscRetReleasesVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="certHdrContHdrViewVL1"
+    ViewLinkObjectName="viewLink.certHdrContHdrViewVL"
+    SrcViewUsageName="AppModule.payCertAM.XxscCertificationHeadersVO1"
+    DstViewUsageName="AppModule.payCertAM.contractROVO1"
+    Reversed="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="subcontract.model.SubContractModelBundle"/>
+  </ResourceBundle>
+  <ClientInterface>
+    <Method
+      Name="createNewCertification">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="refreshCertification">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

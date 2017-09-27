@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="OtherInfoPageDef"
+                Package="oracle.apps.uikit.Fragments" SkipValidation="false">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxscContractHeadersVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="XxscContractHeadersVO1Iterator"/>
+    <iterator Binds="XxscContractLinesVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="XxscContractLinesVO1Iterator"/>
+    <iterator id="contractROVO1Iterator" Binds="contractROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractNum">
+      <AttrNames>
+        <Item Value="ContractNum"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxscContractLinesVO1Iterator" id="XxscContractLinesVO1">
+      <nodeDefinition DefName="view.XxscContractLinesVO"
+                      Name="XxscContractLinesVO10">
+        <AttrNames>
+          <Item Value="ContLineId"/>
+          <Item Value="ContHeaderId"/>
+          <Item Value="ReqHdrId"/>
+          <Item Value="ReqNumber"/>
+          <Item Value="PoHeaderId"/>
+          <Item Value="PoNumber"/>
+          <Item Value="ItemNumber"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="Uom"/>
+          <Item Value="OrigQuantity"/>
+          <Item Value="OrigUnitPrice"/>
+          <Item Value="OrigAmount"/>
+          <Item Value="ReqLineId"/>
+          <Item Value="ReqLineNumber"/>
+          <Item Value="VarQuantity"/>
+          <Item Value="VarUnitPrice"/>
+          <Item Value="VarAmount"/>
+          <Item Value="UOM_Descrip_Trans"/>
+          <Item Value="RevQuantity"/>
+          <Item Value="RevUnitPrice"/>
+          <Item Value="RevAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="ProjectNumber">
+      <AttrNames>
+        <Item Value="ProjectNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscContractLinesVO1Iterator" StaticList="false"
+          Uses="LOV_TaskNumber" id="TaskNumber" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="VarQuantity">
+      <AttrNames>
+        <Item Value="VarQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="VarUnitPrice">
+      <AttrNames>
+        <Item Value="VarUnitPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator" id="VarAmount">
+      <AttrNames>
+        <Item Value="VarAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="RevQuantity">
+      <AttrNames>
+        <Item Value="RevQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="RevUnitPrice">
+      <AttrNames>
+        <Item Value="RevUnitPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator" id="RevAmount">
+      <AttrNames>
+        <Item Value="RevAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="FundedAmount">
+      <AttrNames>
+        <Item Value="FundedAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="InvoicedAmount">
+      <AttrNames>
+        <Item Value="InvoicedAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="CertQuantity">
+      <AttrNames>
+        <Item Value="CertQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="CertUnitPrice">
+      <AttrNames>
+        <Item Value="CertUnitPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator" id="CertAmount">
+      <AttrNames>
+        <Item Value="CertAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator" id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxscContractLinesVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_PaymentTerm" id="PaymentTerm" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractAmount">
+      <AttrNames>
+        <Item Value="ContractAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ProvisionalSum">
+      <AttrNames>
+        <Item Value="ProvisionalSum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="TotalContractSum">
+      <AttrNames>
+        <Item Value="TotalContractSum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="VariationAmount">
+      <AttrNames>
+        <Item Value="VariationAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RevisedContractAmount">
+      <AttrNames>
+        <Item Value="RevisedContractAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscContractLinesVO1Iterator" StaticList="false"
+          Uses="LOV_ReqLineNumber" id="ReqLineNumber" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <listOfValues StaticList="false" IterBinding="XxscContractLinesVO1Iterator"
+                  Uses="LOV_ReqNumber" id="ReqNumber"/>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator" id="PoNumber">
+      <AttrNames>
+        <Item Value="PoNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractLinesVO1Iterator"
+                     id="PoLineNumber">
+      <AttrNames>
+        <Item Value="PoLineNumber"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

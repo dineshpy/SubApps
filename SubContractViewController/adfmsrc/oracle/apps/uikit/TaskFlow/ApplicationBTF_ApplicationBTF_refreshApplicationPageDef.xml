@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="ApplicationBTF_ApplicationBTF_refreshApplicationPageDef"
+                Package="oracle.apps.uikit.TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="refreshApplication" RequiresUpdateModel="true"
+            Action="invokeMethod" MethodName="refreshApplication"
+            IsViewObjectMethod="false" DataControl="applicationAMDataControl"
+            InstanceName="applicationAMDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="contractSearchBTF_contractSearchBTF_ExecuteWithParams1PageDef"
+                Package="oracle.apps.uikit.TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="XxscCertificationHeadersVO1" RangeSize="25"
+              DataControl="payCertAMDataControl"
+              id="XxscCertificationHeadersVO1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="XxscCertificationHeadersVO1Iterator"
+            id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BV_CER_ID" NDValue="#{sessionScope.CerId}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

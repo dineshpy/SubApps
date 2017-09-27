@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="contrSearchPageDef"
+                Package="subcontract.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="contractROVO1" RangeSize="25"
+              DataControl="contractAMDataControl" id="contractROVO1Iterator"/>
+    <searchRegion Criteria="searchVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="contractROVO1Iterator" id="searchVCQuery"/>
+    <iterator Binds="XxscContractHeadersVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="XxscContractHeadersVO1Iterator"/>
+    <iterator Binds="contract_HistoryROVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="contract_HistoryROVO1Iterator"/>
+    <iterator Binds="certificationSearchROVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="certificationSearchROVO1Iterator"/>
+    <searchRegion Criteria="certificationSearch"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="certificationSearchROVO1Iterator"
+                  id="certificationSearchQuery"/>
+    <iterator Binds="certificationHistoryROVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="certificationHistoryROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="contractROVO1Iterator" id="contractROVO1">
+      <nodeDefinition DefName="ROVO.contractROVO" Name="contractROVO10">
+        <AttrNames>
+          <Item Value="ContractNum"/>
+          <Item Value="ContractName"/>
+          <Item Value="ContractTypeDisp"/>
+          <Item Value="ContractDate"/>
+          <Item Value="ProjectName"/>
+          <Item Value="ProjectNumber"/>
+          <Item Value="VendorName"/>
+          <Item Value="VendorSiteCode"/>
+          <Item Value="TotalContractSum"/>
+          <Item Value="BusinessUnit"/>
+          <Item Value="AdvAmount"/>
+          <Item Value="AdvPercent"/>
+          <Item Value="AdvRecoveryAmount"/>
+          <Item Value="AdvRecoveryPercent"/>
+          <Item Value="ApprovalStatus"/>
+          <Item Value="ContHeaderId"/>
+          <Item Value="ContractAmount"/>
+          <Item Value="ContractStatus"/>
+          <Item Value="ContractStatusDisp"/>
+          <Item Value="ContractType"/>
+          <Item Value="ConversionRate"/>
+          <Item Value="CurrencyCode"/>
+          <Item Value="CustBillToAccountName"/>
+          <Item Value="CustBillToAccountNumber"/>
+          <Item Value="CustBillToAcctId"/>
+          <Item Value="CustBillToSite"/>
+          <Item Value="CustBillToSiteUseId"/>
+          <Item Value="CustShipToAccountName"/>
+          <Item Value="CustShipToAccountNumber"/>
+          <Item Value="CustShipToAcctId"/>
+          <Item Value="CustShipToSite"/>
+          <Item Value="CustShipToSiteUseId"/>
+          <Item Value="DataSetId"/>
+          <Item Value="DefectLiabEndDate"/>
+          <Item Value="DefectLiabPeriod"/>
+          <Item Value="EndDate"/>
+          <Item Value="FuncId"/>
+          <Item Value="Intent"/>
+          <Item Value="IntentDisp"/>
+          <Item Value="LiqDamageAmount"/>
+          <Item Value="LiqDamagePercent"/>
+          <Item Value="MaterialOnSite"/>
+          <Item Value="MaterialOnSiteRec"/>
+          <Item Value="OrgId"/>
+          <Item Value="PenaltyAmount"/>
+          <Item Value="PenaltyClause"/>
+          <Item Value="PenaltyPercent"/>
+          <Item Value="PoHeaderId"/>
+          <Item Value="PoNumber"/>
+          <Item Value="ProjectId"/>
+          <Item Value="ProvisionalSum"/>
+          <Item Value="RelRetenAmount"/>
+          <Item Value="RelRetenBalAmount"/>
+          <Item Value="RelRetenBalPercent"/>
+          <Item Value="RelRetenPercent"/>
+          <Item Value="Remarks"/>
+          <Item Value="ReqHeaderId"/>
+          <Item Value="RetenAmount"/>
+          <Item Value="RetenPercent"/>
+          <Item Value="RevisedContractAmount"/>
+          <Item Value="RevisedEndDate"/>
+          <Item Value="StartDate"/>
+          <Item Value="Sundries"/>
+          <Item Value="TimeForCompletion"/>
+          <Item Value="TocDate"/>
+          <Item Value="VariationAmount"/>
+          <Item Value="VenBillToLocation"/>
+          <Item Value="VenBillToLocId"/>
+          <Item Value="VendorId"/>
+          <Item Value="VendorNumber"/>
+          <Item Value="VendorSiteId"/>
+          <Item Value="VendorType"/>
+          <Item Value="VendorTypeDisp"/>
+          <Item Value="VenShipToLocation"/>
+          <Item Value="VenShipToLocId"/>
+          <Item Value="Version"/>
+          <Item Value="VersionType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxscContractHeadersVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="contractROVO1Iterator" id="ContHeaderId">
+      <AttrNames>
+        <Item Value="ContHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contractROVO1Iterator" id="Version">
+      <AttrNames>
+        <Item Value="Version"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contractROVO1Iterator" id="OrgId">
+      <AttrNames>
+        <Item Value="OrgId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contractROVO1Iterator" id="PaymentTermId">
+      <AttrNames>
+        <Item Value="PaymentTermId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contractROVO1Iterator" id="PaymentTerm">
+      <AttrNames>
+        <Item Value="PaymentTerm"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="contract_HistoryROVO1Iterator"
+          id="contract_HistoryROVO1">
+      <nodeDefinition DefName="ROVO.contract_HistoryROVO"
+                      Name="contract_HistoryROVO10">
+        <AttrNames>
+          <Item Value="BusinessUnit"/>
+          <Item Value="ContractNum"/>
+          <Item Value="ContractName"/>
+          <Item Value="Version"/>
+          <Item Value="IntentDisp"/>
+          <Item Value="VersionType"/>
+          <Item Value="ContractTypeDisp"/>
+          <Item Value="ContractDate"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="ProjectName"/>
+          <Item Value="TimeForCompletion"/>
+          <Item Value="CurrencyCode"/>
+          <Item Value="ConversionRate"/>
+          <Item Value="VendorTypeDisp"/>
+          <Item Value="VendorNumber"/>
+          <Item Value="VendorName"/>
+          <Item Value="VenBillToLocation"/>
+          <Item Value="VenShipToLocId"/>
+          <Item Value="VenShipToLocation"/>
+          <Item Value="CustBillToAcctId"/>
+          <Item Value="CustBillToAccountNumber"/>
+          <Item Value="CustBillToAccountName"/>
+          <Item Value="CustBillToSiteUseId"/>
+          <Item Value="CustBillToSite"/>
+          <Item Value="CustShipToAccountNumber"/>
+          <Item Value="CustShipToAccountName"/>
+          <Item Value="CustShipToSiteUseId"/>
+          <Item Value="CustShipToSite"/>
+          <Item Value="ContractAmount"/>
+          <Item Value="ProvisionalSum"/>
+          <Item Value="TotalContractSum"/>
+          <Item Value="VariationAmount"/>
+          <Item Value="RevisedContractAmount"/>
+          <Item Value="AdvPercent"/>
+          <Item Value="AdvAmount"/>
+          <Item Value="AdvRecoveryPercent"/>
+          <Item Value="AdvRecoveryAmount"/>
+          <Item Value="RetenPercent"/>
+          <Item Value="RetenAmount"/>
+          <Item Value="PenaltyPercent"/>
+          <Item Value="PenaltyAmount"/>
+          <Item Value="PenaltyClause"/>
+          <Item Value="RelRetenPercent"/>
+          <Item Value="RelRetenAmount"/>
+          <Item Value="RelRetenBalPercent"/>
+          <Item Value="RelRetenBalAmount"/>
+          <Item Value="LiqDamagePercent"/>
+          <Item Value="LiqDamageAmount"/>
+          <Item Value="DefectLiabPeriod"/>
+          <Item Value="DefectLiabEndDate"/>
+          <Item Value="MaterialOnSite"/>
+          <Item Value="MaterialOnSiteRec"/>
+          <Item Value="RevisedEndDate"/>
+          <Item Value="ApprovalStatusDisp"/>
+          <Item Value="ContractStatusDisp"/>
+          <Item Value="Remarks"/>
+          <Item Value="RevisedDate"/>
+          <Item Value="ProjectNumber"/>
+          <Item Value="PoNumber"/>
+          <Item Value="ReqNumber"/>
+          <Item Value="ExchangeRate"/>
+          <Item Value="MatOnsitePercent"/>
+          <Item Value="MatOnsiteRecPercent"/>
+          <Item Value="MinInterimPayment"/>
+          <Item Value="DlpPeriodCategory"/>
+          <Item Value="SupplyOnlyRatePercent"/>
+          <Item Value="SupplyInsRatePercent"/>
+          <Item Value="ConversionType"/>
+          <Item Value="ConversionDate"/>
+          <Item Value="RetRelTypeDisp"/>
+          <Item Value="PaymentTerm"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="contract_HistoryROVO1Iterator"
+                     id="ContractNum">
+      <AttrNames>
+        <Item Value="ContractNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contract_HistoryROVO1Iterator"
+                     id="ContHeaderId1">
+      <AttrNames>
+        <Item Value="ContHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contract_HistoryROVO1Iterator" id="Version1">
+      <AttrNames>
+        <Item Value="Version"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="certificationSearchROVO1Iterator"
+          id="certificationSearchROVO1">
+      <nodeDefinition DefName="ROVO.certificationSearchROVO"
+                      Name="certificationSearchROVO10">
+        <AttrNames>
+          <Item Value="RowId1"/>
+          <Item Value="CertHeaderId"/>
+          <Item Value="ContHeaderId"/>
+          <Item Value="Version"/>
+          <Item Value="DataSetId"/>
+          <Item Value="FuncId"/>
+          <Item Value="ContractNum"/>
+          <Item Value="VersionType"/>
+          <Item Value="ProjectNumber"/>
+          <Item Value="ProjectName"/>
+          <Item Value="Intent"/>
+          <Item Value="ApplHeaderId"/>
+          <Item Value="CertificationNumber"/>
+          <Item Value="CertificationDate"/>
+          <Item Value="PaymentType"/>
+          <Item Value="PaymentTypeDisp"/>
+          <Item Value="PaymentTermId"/>
+          <Item Value="PaymentTerm"/>
+          <Item Value="PaymentDueDate"/>
+          <Item Value="InvoiceRecDate"/>
+          <Item Value="InvoiceNum"/>
+          <Item Value="InvoiceDate"/>
+          <Item Value="CertificationStatus"/>
+          <Item Value="ContraCharges"/>
+          <Item Value="RetRelPercent"/>
+          <Item Value="CurCertification"/>
+          <Item Value="CurAdvRec"/>
+          <Item Value="CurRet"/>
+          <Item Value="CurRetRel"/>
+          <Item Value="CurPayAmount"/>
+          <Item Value="Comments"/>
+          <Item Value="ApprovalStatusCert"/>
+          <Item Value="ApprovalStatusCertDisp"/>
+          <Item Value="ApprovalStatusContract"/>
+          <Item Value="ApprovalStatusContractDisp"/>
+          <Item Value="ContractStatus"/>
+          <Item Value="ContractStatusDisp"/>
+          <Item Value="OrgId"/>
+          <Item Value="BusinessUnit"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="AttributeCategory"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute2"/>
+          <Item Value="Attribute3"/>
+          <Item Value="Attribute4"/>
+          <Item Value="Attribute5"/>
+          <Item Value="Attribute6"/>
+          <Item Value="Attribute7"/>
+          <Item Value="Attribute8"/>
+          <Item Value="Attribute9"/>
+          <Item Value="Attribute10"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="ContractName"/>
+          <Item Value="CertificationStatusDisp"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="certificationHistoryROVO1Iterator"
+          id="certificationHistoryROVO1">
+      <nodeDefinition DefName="ROVO.certificationHistoryROVO"
+                      Name="certificationHistoryROVO10">
+        <AttrNames>
+          <Item Value="RowId1"/>
+          <Item Value="CertHeaderId"/>
+          <Item Value="ContHeaderId"/>
+          <Item Value="Version"/>
+          <Item Value="DataSetId"/>
+          <Item Value="FuncId"/>
+          <Item Value="ContractNum"/>
+          <Item Value="ContractName"/>
+          <Item Value="VersionType"/>
+          <Item Value="ProjectNumber"/>
+          <Item Value="ProjectName"/>
+          <Item Value="Intent"/>
+          <Item Value="ApplHeaderId"/>
+          <Item Value="CertificationNumber"/>
+          <Item Value="CertificationDate"/>
+          <Item Value="PaymentType"/>
+          <Item Value="PaymentTypeDisp"/>
+          <Item Value="PaymentTermId"/>
+          <Item Value="PaymentTerm"/>
+          <Item Value="PaymentDueDate"/>
+          <Item Value="InvoiceRecDate"/>
+          <Item Value="InvoiceNum"/>
+          <Item Value="InvoiceDate"/>
+          <Item Value="CertificationStatus"/>
+          <Item Value="CertificationStatusDisp"/>
+          <Item Value="ContraCharges"/>
+          <Item Value="RetRelPercent"/>
+          <Item Value="CurCertification"/>
+          <Item Value="CurAdvRec"/>
+          <Item Value="CurRet"/>
+          <Item Value="CurRetRel"/>
+          <Item Value="CurPayAmount"/>
+          <Item Value="Comments"/>
+          <Item Value="ApprovalStatusCert"/>
+          <Item Value="ApprovalStatusCertDisp"/>
+          <Item Value="ApprovalStatusContract"/>
+          <Item Value="ApprovalStatusContractDisp"/>
+          <Item Value="ContractStatus"/>
+          <Item Value="ContractStatusDisp"/>
+          <Item Value="OrgId"/>
+          <Item Value="BusinessUnit"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="AttributeCategory"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute2"/>
+          <Item Value="Attribute3"/>
+          <Item Value="Attribute4"/>
+          <Item Value="Attribute5"/>
+          <Item Value="Attribute6"/>
+          <Item Value="Attribute7"/>
+          <Item Value="Attribute8"/>
+          <Item Value="Attribute9"/>
+          <Item Value="Attribute10"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateLogin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="certificationSearchROVO1Iterator"
+                     id="CertHeaderId">
+      <AttrNames>
+        <Item Value="CertHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="certificationHistoryROVO1Iterator"
+                     id="CertHeaderId1">
+      <AttrNames>
+        <Item Value="CertHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelBox text="Search" id="pb2"
+                   inlineStyle="height:550.0px; border-color:transparent;"
+                   showDisclosure="false">
+        <f:facet name="toolbar"/>
+        <af:panelDrawer position="right" id="pd1" maximumHeight="100%"
+                        maximumWidth="100%" height="528" width="382">
+          <af:showDetailItem id="dr1" shortDesc="Drawer 1"
+                             icon="/images/func_search_32_ena.png">
+            <af:panelBox text="Search" id="pb1" showHeader="never"
+                         inlineStyle="border-color:transparent;">
+              <f:facet name="toolbar"/>
+              <af:query id="qryId1" headerText="Search" disclosed="true"
+                        value="#{bindings.certificationSearchQuery.queryDescriptor}"
+                        model="#{bindings.certificationSearchQuery.queryModel}"
+                        queryListener="#{bindings.certificationSearchQuery.processQuery}"
+                        queryOperationListener="#{bindings.certificationSearchQuery.processQueryOperation}"
+                        resultComponentId="::pc1:resId1"/>
+            </af:panelBox>
+          </af:showDetailItem>
+        </af:panelDrawer>
+        <af:panelGroupLayout id="pgl2" layout="horizontal">
+          <af:inputText label="Find" id="it1" usage="search"
+                       
+                        placeholder="Search Certification..."/>
+          <af:commandButton text="Search" id="cb1"/>
+          <af:spacer width="750" height="10" id="s2"/>
+          <af:commandButton
+                            text="Create Certification" id="cb2"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                              inlineStyle="height:440px;">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.certificationSearchROVO1.collectionModel}"
+                      var="row"
+                      rows="#{bindings.certificationSearchROVO1.rangeSize}"
+                      emptyText="#{bindings.certificationSearchROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.certificationSearchROVO1.rangeSize}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.certificationSearchROVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.certificationSearchROVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="resId1" varStatus="vs">
+              <af:column id="c1" headerText="S.NO">
+                <af:outputText value="#{vs.index+1}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.ContractNum.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.ContractNum.label}"
+                         id="resId1c7">
+                <af:outputText value="#{row.ContractNum}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.CertificationNumber.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.CertificationNumber.label}"
+                         id="resId1c13">
+                <af:outputText value="#{row.CertificationNumber}" id="ot43"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.Version.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.Version.label}"
+                         id="resId1c4">
+                <af:outputText value="#{row.Version}" id="ot9">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.certificationSearchROVO1.hints.Version.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.BusinessUnit.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.BusinessUnit.label}"
+                         id="resId1c39">
+                <af:outputText value="#{row.BusinessUnit}" id="ot15"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.CertificationDate.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.CertificationDate.label}"
+                         id="resId1c14">
+                <af:outputText value="#{row.CertificationDate}" id="ot54">
+                  <af:convertDateTime pattern="#{bindings.certificationSearchROVO1.hints.CertificationDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.PaymentType.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.PaymentType.label}"
+                         id="resId1c15">
+                <af:outputText value="#{row.PaymentType}" id="ot33"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.ProjectNumber.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.ProjectNumber.label}"
+                         id="resId1c9">
+                <af:outputText value="#{row.ProjectNumber}" id="ot48"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.ProjectName.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.ProjectName.label}"
+                         id="resId1c10">
+                <af:outputText value="#{row.ProjectName}" id="ot11"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.PaymentTypeDisp.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.PaymentTypeDisp.label}"
+                         id="resId1c16">
+                <af:outputText value="#{row.PaymentTypeDisp}" id="ot35"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.PaymentTerm.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.PaymentTerm.label}"
+                         id="resId1c18">
+                <af:outputText value="#{row.PaymentTerm}" id="ot21"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.InvoiceRecDate.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.InvoiceRecDate.label}"
+                         id="resId1c20">
+                <af:outputText value="#{row.InvoiceRecDate}" id="ot13">
+                  <af:convertDateTime pattern="#{bindings.certificationSearchROVO1.hints.InvoiceRecDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.InvoiceNum.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.InvoiceNum.label}"
+                         id="resId1c21">
+                <af:outputText value="#{row.InvoiceNum}" id="ot29"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.InvoiceDate.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.InvoiceDate.label}"
+                         id="resId1c22">
+                <af:outputText value="#{row.InvoiceDate}" id="ot1">
+                  <af:convertDateTime pattern="#{bindings.certificationSearchROVO1.hints.InvoiceDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.CurCertification.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.CurCertification.label}"
+                         id="resId1c26">
+                <af:outputText value="#{row.CurCertification}" id="ot53">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.certificationSearchROVO1.hints.CurCertification.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.CurAdvRec.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.CurAdvRec.label}"
+                         id="resId1c27">
+                <af:outputText value="#{row.CurAdvRec}" id="ot42">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.certificationSearchROVO1.hints.CurAdvRec.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.CurRet.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.CurRet.label}"
+                         id="resId1c28">
+                <af:outputText value="#{row.CurRet}" id="ot45">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.certificationSearchROVO1.hints.CurRet.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.CurPayAmount.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.CurPayAmount.label}"
+                         id="resId1c30">
+                <af:outputText value="#{row.CurPayAmount}" id="ot39">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.certificationSearchROVO1.hints.CurPayAmount.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.Comments.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.Comments.label}"
+                         id="resId1c31">
+                <af:outputText value="#{row.Comments}" id="ot28"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.ApprovalStatusCertDisp.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.ApprovalStatusCertDisp.label}"
+                         id="resId1c33">
+                <af:outputText value="#{row.ApprovalStatusCertDisp}" id="ot38"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.ApprovalStatusContractDisp.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.ApprovalStatusContractDisp.label}"
+                         id="resId1c35">
+                <af:outputText value="#{row.ApprovalStatusContractDisp}"
+                               id="ot24"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.certificationSearchROVO1.hints.ContractStatusDisp.name}"
+                         sortable="false"
+                         headerText="#{bindings.certificationSearchROVO1.hints.ContractStatusDisp.label}"
+                         id="resId1c37">
+                <af:outputText value="#{row.ContractStatusDisp}" id="ot6"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:panelBox>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

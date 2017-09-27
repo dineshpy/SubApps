@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="contrInfoPageDef"
+                Package="oracle.apps.uikit.Fragments" SkipValidation="false">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxscContractHeadersVO1" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="XxscContractHeadersVO1Iterator"/>
+    <iterator id="contractROVO1Iterator" Binds="contractROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="XxscContractLinesVO1Iterator" Binds="XxscContractLinesVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractNum">
+      <AttrNames>
+        <Item Value="ContractNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContHeaderId1">
+      <AttrNames>
+        <Item Value="ContHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_OrgId" id="OrgId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractName">
+      <AttrNames>
+        <Item Value="ContractName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="projectStartDate">
+      <AttrNames>
+        <Item Value="projectStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="projectEndDate">
+      <AttrNames>
+        <Item Value="projectEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractDate">
+      <AttrNames>
+        <Item Value="ContractDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator" id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="RevisedDate">
+      <AttrNames>
+        <Item Value="RevisedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="TimeForCompletion">
+      <AttrNames>
+        <Item Value="TimeForCompletion"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_ContractType" id="ContractType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator" id="Version">
+      <AttrNames>
+        <Item Value="Version"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="XxscContractHeadersVO1Iterator"
+                  Uses="LOV_CurrencyCode" id="CurrencyCode"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ConversionRate">
+      <AttrNames>
+        <Item Value="ConversionRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ConversionDate">
+      <AttrNames>
+        <Item Value="ConversionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_ApprovalStatus" id="ApprovalStatus" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_ContractStatus" id="ContractStatus" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_ConversionType" id="ConversionType" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ReqHeaderId">
+      <AttrNames>
+        <Item Value="ReqHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="XxscContractHeadersVO1Iterator"
+                  Uses="LOV_ReqNumber" id="ReqNumber1"/>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_ProjectNumber" id="ProjectNumber1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ProjectId">
+      <AttrNames>
+        <Item Value="ProjectId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="projectNameTRANS">
+      <AttrNames>
+        <Item Value="projectNameTRANS"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="homeBTF">
+    <default-activity id="__1">DashBoard</default-activity>
+    <view id="home">
+      <page>/home.jspx</page>
+    </view>
+    <view id="DashBoard">
+      <page>/DashBoard.jspx</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">DashBoard</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">toHome</from-outcome>
+        <to-activity-id id="__4">home</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">home</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__11">toDashBoard</from-outcome>
+        <to-activity-id id="__10">DashBoard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

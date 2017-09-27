@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelStretchLayout id="psl1"
+                             styleClass="page-container AFStretchWidth"
+                             inlineStyle="height:3000px;">
+        <f:facet name="center">
+          <af:panelGroupLayout id="pgl4" layout="scroll">
+            <af:panelGroupLayout id="pgl2" layout="horizontal">
+              <af:panelGroupLayout id="pgl3">
+                <af:spacer width="10" height="10" id="s4"/>
+                <af:panelGroupLayout id="pgl1" layout="horizontal">
+                  <af:spacer width="10" height="10" id="s1"/>
+                  <af:outputText value="Contract Information" id="ot1"
+                                 inlineStyle="font-weight:bold; font-size:medium;"/>
+                  <af:spacer width="10" height="10" id="spacer2"
+                             rendered="false"/>
+                  <af:activeOutputText id="aot1"
+                                       inlineStyle="font-weight:bolder; font-size:large; color:#1367AE;"
+                                       value="#{bindings.ContractNum.inputValue}"
+                                       rendered="false"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+              <af:spacer width="965" height="10" id="s2"/>
+              <af:panelGroupLayout id="panelGroupLayout1" layout="vertical">
+                <af:spacer width="10" height="10" id="spacer1"/>
+                <af:panelGroupLayout id="panelGroupLayout2" layout="horizontal">
+                  <af:spacer width="10" height="10" id="s3"/>
+                  <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                     id="tbb1"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="10" id="s5"/>
+            <af:separator id="s6" inlineStyle="border-color:#C1C1C1;"/>
+            <af:spacer width="10" height="10" id="s7"/>
+            <af:panelGroupLayout id="pgl5" styleClass="AFStretchWidth">
+              <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                        id="t1" inlineStyle="padding-left:280px"/>
+            </af:panelGroupLayout>
+            <af:spacer width="10" height="10" id="s8"/>
+            <af:panelBox text="Contract Information" id="pb1"
+                         showDisclosure="false"
+                         inlineStyle="background-color:#b4d3ed; height:290.0px;">
+              <f:facet name="toolbar"/>
+              <af:spacer width="10" height="10" id="s9"/>
+              <af:panelFormLayout id="pfl1" rows="3" maxColumns="3">
+                <af:inputText value="#{bindings.ContHeaderId1.inputValue}"
+                              label="ContHeaderId"
+                              required="#{bindings.ContHeaderId1.hints.mandatory}"
+                              columns="#{bindings.ContHeaderId1.hints.displayWidth}"
+                              maximumLength="#{bindings.ContHeaderId1.hints.precision}"
+                              shortDesc="#{bindings.ContHeaderId1.hints.tooltip}"
+                              id="it8" rendered="false">
+                  <f:validator binding="#{bindings.ContHeaderId1.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.ContHeaderId1.format}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.OrgId.inputValue}"
+                                    label="#{bindings.OrgId.label}"
+                                    required="#{bindings.OrgId.hints.mandatory}"
+                                    shortDesc="#{bindings.OrgId.hints.tooltip}"
+                                    id="soc3" contentStyle="width:200px;"
+                                    autoSubmit="true">
+                  <f:selectItems value="#{bindings.OrgId.items}" id="si4"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.ContractNum.inputValue}"
+                              label="#{bindings.ContractNum.hints.label}"
+                              required="#{bindings.ContractNum.hints.mandatory}"
+                              columns="#{bindings.ContractNum.hints.displayWidth}"
+                              maximumLength="#{bindings.ContractNum.hints.precision}"
+                              shortDesc="#{bindings.ContractNum.hints.tooltip}"
+                              id="it3" contentStyle="width:200px;"
+                              disabled="true">
+                  <f:validator binding="#{bindings.ContractNum.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ContractName.inputValue}"
+                              label="#{bindings.ContractName.hints.label}"
+                              required="#{bindings.ContractName.hints.mandatory}"
+                              columns="#{bindings.ContractName.hints.displayWidth}"
+                              maximumLength="#{bindings.ContractName.hints.precision}"
+                              shortDesc="#{bindings.ContractName.hints.tooltip}"
+                              id="it5" contentStyle="width:200px;"
+                              disabled="#{sessionScope.history eq 'contractHistory'}">
+                  <f:validator binding="#{bindings.ContractName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ReqHeaderId.inputValue}"
+                              label="ReqHeaderId"
+                              required="#{bindings.ReqHeaderId.hints.mandatory}"
+                              columns="#{bindings.ReqHeaderId.hints.displayWidth}"
+                              maximumLength="#{bindings.ReqHeaderId.hints.precision}"
+                              shortDesc="#{bindings.ReqHeaderId.hints.tooltip}"
+                              id="it1" partialTriggers="reqNumber1Id"
+                              rendered="false">
+                  <f:validator binding="#{bindings.ReqHeaderId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.ReqHeaderId.format}"/>
+                </af:inputText>
+                <af:inputListOfValues id="reqNumber1Id"
+                                      popupTitle="Search and Select: #{bindings.ReqNumber1.hints.label}"
+                                      value="#{bindings.ReqNumber1.inputValue}"
+                                      label="#{bindings.ReqNumber1.hints.label}"
+                                      model="#{bindings.ReqNumber1.listOfValuesModel}"
+                                      required="#{bindings.ReqNumber1.hints.mandatory}"
+                                      columns="#{bindings.ReqNumber1.hints.displayWidth}"
+                                      shortDesc="#{bindings.ReqNumber1.hints.tooltip}"
+                                      autoSubmit="true" partialTriggers="soc3"
+                                      contentStyle="width:180px;">
+                  <f:validator binding="#{bindings.ReqNumber1.validator}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.ProjectId.inputValue}"
+                              label="ProjectId"
+                              required="#{bindings.ProjectId.hints.mandatory}"
+                              columns="#{bindings.ProjectId.hints.displayWidth}"
+                              maximumLength="#{bindings.ProjectId.hints.precision}"
+                              shortDesc="#{bindings.ProjectId.hints.tooltip}"
+                              id="it7" partialTriggers="soc8" rendered="false">
+                  <f:validator binding="#{bindings.ProjectId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.ProjectId.format}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.ProjectNumber1.inputValue}"
+                                    label="#{bindings.ProjectNumber1.label}"
+                                    required="#{bindings.ProjectNumber1.hints.mandatory}"
+                                    shortDesc="#{bindings.ProjectNumber1.hints.tooltip}"
+                                    id="soc8" autoSubmit="true"
+                                    partialTriggers="reqNumber1Id"
+                                    contentStyle="width:200px;">
+                  <f:selectItems value="#{bindings.ProjectNumber1.items}"
+                                 id="si8"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.projectNameTRANS.inputValue}"
+                              label="#{bindings.projectNameTRANS.hints.label}"
+                              required="#{bindings.projectNameTRANS.hints.mandatory}"
+                              columns="#{bindings.projectNameTRANS.hints.displayWidth}"
+                              maximumLength="#{bindings.projectNameTRANS.hints.precision}"
+                              shortDesc="#{bindings.projectNameTRANS.hints.tooltip}"
+                              id="it17" partialTriggers="soc8"
+                              contentStyle="width:200px;" disabled="true">
+                  <f:validator binding="#{bindings.projectNameTRANS.validator}"/>
+                </af:inputText>
+                <af:panelLabelAndMessage label="Project Date" id="plam3">
+                  <af:panelGroupLayout id="pgl8" layout="horizontal">
+                    <af:inputDate value="#{bindings.projectStartDate.inputValue}"
+                                  label="#{bindings.projectStartDate.hints.label}"
+                                  required="#{bindings.projectStartDate.hints.mandatory}"
+                                  shortDesc="#{bindings.projectStartDate.hints.tooltip}"
+                                  id="id3" contentStyle="width:96px;"
+                                  disabled="true" partialTriggers="soc8"
+                                  simple="true">
+                      <f:validator binding="#{bindings.projectStartDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.projectStartDate.format}"/>
+                    </af:inputDate>
+                    <af:spacer width="2" height="10" id="s15"/>
+                    <af:outputText value="-" id="ot3"
+                                   inlineStyle="font-weight:bold;"/>
+                    <af:inputText id="it18" value="-" simple="true"
+                                  contentStyle="width:15px;" disabled="true"
+                                  rendered="false"/>
+                    <af:spacer width="2" height="10" id="s16"/>
+                    <af:inputDate value="#{bindings.projectEndDate.inputValue}"
+                                  label="#{bindings.projectEndDate.hints.label}"
+                                  required="#{bindings.projectEndDate.hints.mandatory}"
+                                  shortDesc="#{bindings.projectEndDate.hints.tooltip}"
+                                  id="id6" contentStyle="width:96px;"
+                                  disabled="true" partialTriggers="soc8"
+                                  simple="true">
+                      <f:validator binding="#{bindings.projectEndDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.projectEndDate.format}"/>
+                    </af:inputDate>
+                  </af:panelGroupLayout>
+                </af:panelLabelAndMessage>
+                <af:inputDate value="#{bindings.ContractDate.inputValue}"
+                              label="#{bindings.ContractDate.hints.label}"
+                              required="#{bindings.ContractDate.hints.mandatory}"
+                              shortDesc="#{bindings.ContractDate.hints.tooltip}"
+                              id="id4" contentStyle="width:200px;"
+                              disabled="true">
+                  <f:validator binding="#{bindings.ContractDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.ContractDate.format}"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.StartDate.inputValue}"
+                              label="#{bindings.StartDate.hints.label}"
+                              required="#{bindings.StartDate.hints.mandatory}"
+                              shortDesc="#{bindings.StartDate.hints.tooltip}"
+                              id="id2" contentStyle="width:200px;"
+                              disabled="#{sessionScope.history eq 'contractHistory'}"
+                              binding="#{backingBeanScope.ContractBean.stdate}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.StartDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.EndDate.inputValue}"
+                              label="#{bindings.EndDate.hints.label}"
+                              required="#{bindings.EndDate.hints.mandatory}"
+                              shortDesc="#{bindings.EndDate.hints.tooltip}"
+                              id="id5" contentStyle="width:200px;"
+                              disabled="#{sessionScope.history eq 'contractHistory'}"
+                              binding="#{backingBeanScope.ContractBean.endate}"
+                              valueChangeListener="#{backingBeanScope.ContractBean.endDateTOC}"
+                              autoSubmit="true"
+                              minValue="#{bindings.StartDate.inputValue}">
+                  <f:validator binding="#{bindings.EndDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.RevisedDate.inputValue}"
+                              label="#{bindings.RevisedDate.hints.label}"
+                              required="#{bindings.RevisedDate.hints.mandatory}"
+                              shortDesc="#{bindings.RevisedDate.hints.tooltip}"
+                              id="id7" contentStyle="width:200px;"
+                              disabled="#{sessionScope.page ne 'variation'}"
+                              binding="#{backingBeanScope.ContractBean.revdate}"
+                              autoSubmit="true"
+                              valueChangeListener="#{backingBeanScope.ContractBean.revDateTOC}"
+                              minValue="#{bindings.EndDate.inputValue}">
+                  <f:validator binding="#{bindings.RevisedDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.RevisedDate.format}"/>
+                </af:inputDate>
+                <af:panelLabelAndMessage label="#{bindings.TimeForCompletion.hints.label}" id="plam1">
+                  <af:panelGroupLayout id="pgl6" layout="horizontal">
+                    <af:inputText value="#{bindings.TimeForCompletion.inputValue}"
+                                  required="#{bindings.TimeForCompletion.hints.mandatory}"
+                                  columns="#{bindings.TimeForCompletion.hints.displayWidth}"
+                                  maximumLength="#{bindings.TimeForCompletion.hints.precision}"
+                                  shortDesc="#{bindings.TimeForCompletion.hints.tooltip}"
+                                  id="it9"
+                                  contentStyle="width:100px;text-align:right;"
+                                  simple="true" disabled="true"
+                                  binding="#{backingBeanScope.ContractBean.tocInDays}">
+                      <f:validator binding="#{bindings.TimeForCompletion.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TimeForCompletion.format}"/>
+                    </af:inputText>
+                    <af:spacer width="5" height="10" id="s13"/>
+                    <af:inputText id="it6" contentStyle="width:95px;"
+                                  simple="true" value="Days" disabled="true"/>
+                  </af:panelGroupLayout>
+                </af:panelLabelAndMessage>
+                <af:selectOneChoice value="#{bindings.ContractType.inputValue}"
+                                    label="#{bindings.ContractType.label}"
+                                    required="#{bindings.ContractType.hints.mandatory}"
+                                    shortDesc="#{bindings.ContractType.hints.tooltip}"
+                                    id="soc4" contentStyle="width:200px;">
+                  <f:selectItems value="#{bindings.ContractType.items}"
+                                 id="si3"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.Version.inputValue}"
+                              label="#{bindings.Version.hints.label}"
+                              required="#{bindings.Version.hints.mandatory}"
+                              columns="#{bindings.Version.hints.displayWidth}"
+                              maximumLength="#{bindings.Version.hints.precision}"
+                              shortDesc="#{bindings.Version.hints.tooltip}"
+                              id="it4" contentStyle="width:200px;"
+                              disabled="true">
+                  <f:validator binding="#{bindings.Version.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Version.format}"/>
+                </af:inputText>
+                <af:inputListOfValues id="currencyCodeId"
+                                      popupTitle="Search and Select: #{bindings.CurrencyCode.hints.label}"
+                                      value="#{bindings.CurrencyCode.inputValue}"
+                                      label="#{bindings.CurrencyCode.hints.label}"
+                                      model="#{bindings.CurrencyCode.listOfValuesModel}"
+                                      required="#{bindings.CurrencyCode.hints.mandatory}"
+                                      columns="#{bindings.CurrencyCode.hints.displayWidth}"
+                                      shortDesc="#{bindings.CurrencyCode.hints.tooltip}"
+                                      contentStyle="width:180px;"
+                                      autoSubmit="true">
+                  <f:validator binding="#{bindings.CurrencyCode.validator}"/>
+                </af:inputListOfValues>
+                <af:panelLabelAndMessage label="#{bindings.ConversionRate.hints.label}" id="plam2">
+                  <af:panelGroupLayout id="pgl7" layout="horizontal">
+                    <af:selectOneChoice value="#{bindings.ConversionType.inputValue}"
+                                        label="#{bindings.ConversionType.label}"
+                                        required="#{bindings.ConversionType.hints.mandatory}"
+                                        shortDesc="#{bindings.ConversionType.hints.tooltip}"
+                                        id="soc5" contentStyle="width:100px;"
+                                        simple="true">
+                      <f:selectItems value="#{bindings.ConversionType.items}"
+                                     id="si5"/>
+                    </af:selectOneChoice>
+                    <af:spacer width="10" height="10" id="s14"/>
+                    <af:inputText value="#{bindings.ConversionRate.inputValue}"
+                                  label="#{bindings.ConversionRate.hints.label}"
+                                  required="#{bindings.ConversionRate.hints.mandatory}"
+                                  columns="#{bindings.ConversionRate.hints.displayWidth}"
+                                  maximumLength="#{bindings.ConversionRate.hints.precision}"
+                                  shortDesc="#{bindings.ConversionRate.hints.tooltip}"
+                                  id="it2"
+                                  contentStyle="width:90px;text-align:right;"
+                                  simple="true">
+                      <f:validator binding="#{bindings.ConversionRate.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ConversionRate.format}"
+                                        minFractionDigits="2"
+                                        maxFractionDigits="2"/>
+                    </af:inputText>
+                  </af:panelGroupLayout>
+                </af:panelLabelAndMessage>
+                <af:inputDate value="#{bindings.ConversionDate.inputValue}"
+                              label="#{bindings.ConversionDate.hints.label}"
+                              required="#{bindings.ConversionDate.hints.mandatory}"
+                              shortDesc="#{bindings.ConversionDate.hints.tooltip}"
+                              id="id1" contentStyle="width:200px;"
+                              disabled="true">
+                  <f:validator binding="#{bindings.ConversionDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.ConversionDate.format}"/>
+                </af:inputDate>
+                <af:selectOneChoice value="#{bindings.ApprovalStatus.inputValue}"
+                                    label="#{bindings.ApprovalStatus.label}"
+                                    required="#{bindings.ApprovalStatus.hints.mandatory}"
+                                    shortDesc="#{bindings.ApprovalStatus.hints.tooltip}"
+                                    id="soc2" contentStyle="width:200px;"
+                                    disabled="true">
+                  <f:selectItems value="#{bindings.ApprovalStatus.items}"
+                                 id="si2"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.ContractStatus.inputValue}"
+                                    label="#{bindings.ContractStatus.label}"
+                                    required="#{bindings.ContractStatus.hints.mandatory}"
+                                    shortDesc="#{bindings.ContractStatus.hints.tooltip}"
+                                    id="soc1" contentStyle="width:200px;"
+                                    disabled="true">
+                  <f:selectItems value="#{bindings.ContractStatus.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+              <af:spacer width="10" height="10" id="s10" rendered="false"/>
+            </af:panelBox>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelStretchLayout>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

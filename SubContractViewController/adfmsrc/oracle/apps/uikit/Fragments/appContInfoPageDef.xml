@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="appContInfoPageDef"
+                Package="oracle.apps.uikit.Fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxscPayApplHeadersVO1" RangeSize="25"
+              DataControl="applicationAMDataControl"
+              id="XxscPayApplHeadersVO1Iterator"/>
+    <iterator Binds="XxscPayApplLinesVO2" RangeSize="25"
+              DataControl="applicationAMDataControl"
+              id="XxscPayApplLinesVO2Iterator"/>
+    <iterator id="XxscContractLinesVO1Iterator" Binds="XxscContractLinesVO1"
+              DataControl="applicationAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false" IterBinding="XxscPayApplHeadersVO1Iterator"
+                  Uses="LOV_Trans_ContractNumber" id="Trans_ContractNumber"/>
+    <list IterBinding="XxscPayApplHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_OrgId" id="OrgId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_ContractName">
+      <AttrNames>
+        <Item Value="Trans_ContractName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_ProjectNumber">
+      <AttrNames>
+        <Item Value="Trans_ProjectNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_ProjectName">
+      <AttrNames>
+        <Item Value="Trans_ProjectName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_Contract_Amount">
+      <AttrNames>
+        <Item Value="Trans_Contract_Amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_Advan_Rec_Per">
+      <AttrNames>
+        <Item Value="Trans_Advan_Rec_Per"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_Advan_Recovery">
+      <AttrNames>
+        <Item Value="Trans_Advan_Recovery"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_Retension">
+      <AttrNames>
+        <Item Value="Trans_Retension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_Retension_Per">
+      <AttrNames>
+        <Item Value="Trans_Retension_Per"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_Variation">
+      <AttrNames>
+        <Item Value="Trans_Variation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="Trans_Revis_Cont_Amount">
+      <AttrNames>
+        <Item Value="Trans_Revis_Cont_Amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="ApplicationNumber">
+      <AttrNames>
+        <Item Value="ApplicationNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="ApplicationDate">
+      <AttrNames>
+        <Item Value="ApplicationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="PaymentType">
+      <AttrNames>
+        <Item Value="PaymentType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="PaymentTerm">
+      <AttrNames>
+        <Item Value="PaymentTerm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="PaymentDueDate">
+      <AttrNames>
+        <Item Value="PaymentDueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="ApplicationStatus">
+      <AttrNames>
+        <Item Value="ApplicationStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="ContraCharges">
+      <AttrNames>
+        <Item Value="ContraCharges"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator" id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxscPayApplLinesVO2Iterator" id="XxscPayApplLinesVO2">
+      <nodeDefinition DefName="view.XxscPayApplLinesVO"
+                      Name="XxscPayApplLinesVO20">
+        <AttrNames>
+          <Item Value="ApplLineId"/>
+          <Item Value="ApplHeaderId"/>
+          <Item Value="ContHeaderId"/>
+          <Item Value="ContLineId"/>
+          <Item Value="Version"/>
+          <Item Value="OrgId"/>
+          <Item Value="Trans_Item"/>
+          <Item Value="Trans_Uom"/>
+          <Item Value="Trans_Qty"/>
+          <Item Value="Trans_Rate"/>
+          <Item Value="Trans_Amount"/>
+          <Item Value="PrevPerc"/>
+          <Item Value="PrevSupOnlyQty"/>
+          <Item Value="PrevSupInsQty"/>
+          <Item Value="PrevTotQty"/>
+          <Item Value="PrevAmount"/>
+          <Item Value="CurrPerc"/>
+          <Item Value="CurrSupOnlyQty"/>
+          <Item Value="CurrSupInsQty"/>
+          <Item Value="CurrTotQty"/>
+          <Item Value="CurrAmount"/>
+          <Item Value="CumPerc"/>
+          <Item Value="CumSupOnlyQty"/>
+          <Item Value="CumSupInsQty"/>
+          <Item Value="CumTotQty"/>
+          <Item Value="CumAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxscPayApplHeadersVO1Iterator"
+                     id="ContHeaderId">
+      <AttrNames>
+        <Item Value="ContHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

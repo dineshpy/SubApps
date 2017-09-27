@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ApplicationBTF">
+    <default-activity id="__1">refreshApplication</default-activity>
+    <transaction id="__22">
+      <new-transaction/>
+    </transaction>
+    <managed-bean id="__11">
+      <managed-bean-name id="__21">ApplicationBean</managed-bean-name>
+      <managed-bean-class id="__10">backing.ApplicationInfo</managed-bean-class>
+      <managed-bean-scope id="__20">backingBean</managed-bean-scope>
+    </managed-bean>
+    <task-flow-return id="save">
+      <outcome id="__2">
+        <name>save</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome id="__3">
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <view id="appContInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/appContInfo.jsff</page>
+    </view>
+    <method-call id="refreshApplication">
+      <method>#{bindings.refreshApplication.execute}</method>
+      <outcome id="__4">
+        <fixed-outcome>refreshApplication</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">appContInfo</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__16">save</from-outcome>
+        <to-activity-id id="__15">save</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome id="__19">cancel</from-outcome>
+        <to-activity-id id="__18">cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id id="__6">refreshApplication</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__8">refreshApplication</from-outcome>
+        <to-activity-id id="__7">appContInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

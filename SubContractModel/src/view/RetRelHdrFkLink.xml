@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RetRelHdrFkLink"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  EntityAssociation="Assoc.RetRelHdrFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="XxscCertificationHeadersVO"
+    Cardinality="1"
+    Owner="view.XxscCertificationHeadersVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="XxscCertificationHeadersVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="view.XxscCertificationHeadersVO.CertHeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XxscRetReleasesVO"
+    Cardinality="-1"
+    Owner="view.XxscRetReleasesVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="XxscRetReleasesVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="view.XxscRetReleasesVO.CertHeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

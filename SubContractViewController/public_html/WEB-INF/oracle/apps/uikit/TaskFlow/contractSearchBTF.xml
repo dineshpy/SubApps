@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="contractSearchBTF">
+    <default-activity id="__1">contrSearch</default-activity>
+    <managed-bean id="__36">
+      <managed-bean-name id="__34">contrSearch</managed-bean-name>
+      <managed-bean-class id="__33">backing.contrSearch</managed-bean-class>
+      <managed-bean-scope id="__35">request</managed-bean-scope>
+    </managed-bean>
+    <view id="contrSearch">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/contrSearch.jsff</page>
+    </view>
+    <task-flow-call id="contractAddEditBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/apps/uikit/TaskFlow/contractAddEditBTF.xml</document>
+        <id>contractAddEditBTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__22">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="payCertBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/apps/uikit/TaskFlow/payCertBTF.xml</document>
+        <id>payCertBTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__13">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams1">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__37">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="ApplicationBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/apps/uikit/TaskFlow/ApplicationBTF.xml</document>
+        <id>ApplicationBTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="ExecuteWithParams2">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__46">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">contrSearch</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">add</from-outcome>
+        <to-activity-id id="__5">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome id="__16">edit</from-outcome>
+        <to-activity-id id="__14">ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__44">
+        <from-outcome id="__45">editCertification</from-outcome>
+        <to-activity-id id="__43">ExecuteWithParams1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__56">
+        <from-outcome id="__57">newCertification</from-outcome>
+        <to-activity-id id="__50">payCertBTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__47">
+        <from-outcome id="__49">editApplication</from-outcome>
+        <to-activity-id id="__48">ExecuteWithParams2</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__58">
+        <from-outcome id="__60">newApplication</from-outcome>
+        <to-activity-id id="__59">ApplicationBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">CreateInsert</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">CreateInsert</from-outcome>
+        <to-activity-id id="__12">contractAddEditBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id id="__29">Execute</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome id="__31">Execute</from-outcome>
+        <to-activity-id id="__30">contrSearch</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome id="__19">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__20">contractAddEditBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id id="__24">contractAddEditBTF</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome id="__25">CancelTF</from-outcome>
+        <to-activity-id id="__27">Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id id="__39">ExecuteWithParams1</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome id="__40">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__42">payCertBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__51">
+      <from-activity-id id="__52">ExecuteWithParams2</from-activity-id>
+      <control-flow-case id="__53">
+        <from-outcome id="__54">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__55">ApplicationBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

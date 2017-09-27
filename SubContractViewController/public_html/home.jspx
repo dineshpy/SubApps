@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:decorativeBox id="db1" styleClass="background-color:White;"
+                          topHeight="35px">
+          <f:facet name="center">
+            <af:region value="#{bindings.dynamic.regionModel}" id="r1"/>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelGroupLayout id="pgl2" inlineStyle="height:49.0px;"
+                                 layout="scroll">
+              <af:panelGridLayout id="pgl1"
+                                  inlineStyle="color:White; background-color:White;">
+                <af:gridRow marginTop="5px" height="30px" marginBottom="5px"
+                            id="gr1">
+                  <af:gridCell marginStart="5px" width="auto" id="gc1"/>
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                               id="gc2" halign="end">
+                    <af:commandButton text="Dash Board" id="cb1"
+                                      icon="/images/back_dis.png"
+                                      action="toDashBoard"
+                                      inlineStyle="margin-right:5px"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

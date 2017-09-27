@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="contractAddEditBTF">
+    <default-activity id="__1">contrInfo</default-activity>
+    <transaction id="__18">
+      <new-transaction/>
+    </transaction>
+    <managed-bean id="__26">
+      <managed-bean-name id="__23">ContractBean</managed-bean-name>
+      <managed-bean-class id="__25">backing.ContractClass</managed-bean-class>
+      <managed-bean-scope id="__24">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="contrInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/contrInfo.jsff</page>
+      <train-stop id="__2">
+        <display-name id="__8">Contract Information</display-name>
+      </train-stop>
+    </view>
+    <view id="partyInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/partyInfo.jsff</page>
+      <train-stop id="__3">
+        <display-name id="__19">Party Information</display-name>
+      </train-stop>
+    </view>
+    <task-flow-return id="saveTF">
+      <outcome id="__7">
+        <name>saveTF</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="CancelTF">
+      <outcome id="__14">
+        <name>CancelTF</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <view id="OtherInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/OtherInfo.jsff</page>
+      <train-stop id="__27">
+        <display-name id="__38">Line Information</display-name>
+      </train-stop>
+    </view>
+    <view id="payInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/payInfo.jsff</page>
+      <train-stop id="__28">
+        <display-name id="__39">Payment Information</display-name>
+      </train-stop>
+    </view>
+    <view id="gaurInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/gaurInfo.jsff</page>
+      <train-stop id="__29">
+        <display-name id="__40">Guarantee Information</display-name>
+      </train-stop>
+    </view>
+    <train/>
+    <control-flow-rule id="__30">
+      <from-activity-id id="__31">gaurInfo</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome id="__34">save</from-outcome>
+        <to-activity-id id="__32">saveTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__36">
+        <from-outcome id="__37">cancel</from-outcome>
+        <to-activity-id id="__35">CancelTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

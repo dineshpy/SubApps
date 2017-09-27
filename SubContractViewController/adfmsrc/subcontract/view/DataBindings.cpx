@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="subcontract.view" ClientType="Generic">
+   <definitionFactories>
+      <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+               className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+      <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+   </definitionFactories>
+   <pageMap>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/partyInfo.jsff"
+            usageId="subcontract_view_partyInfoPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF@CreateInsert"
+            usageId="subcontract_view_contractSearchBTF_contractSearchBTF_CreateInsertPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF@Execute"
+            usageId="subcontract_view_contractSearchBTF_contractSearchBTF_ExecutePageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/contrSearch.jsff"
+            usageId="subcontract_view_contrSearchPageDef"/>
+      <page path="/temp.jspx" usageId="subcontract_view_tempPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/gaurInfo.jsff"
+            usageId="subcontract_view_gaurInfoPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/payInfo.jsff"
+            usageId="subcontract_view_payInfoPageDef"/>
+             <page path="/home.jspx" usageId="subcontract_view_homePageDef"/>
+                 <page path="/WEB-INF/oracle/apps/uikit/Fragments/contrInfo.jsff"
+            usageId="subcontract_view_contrInfoPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/OtherInfo.jsff"
+            usageId="subcontract_view_OtherInfoPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/certContrInfo.jsff"
+            usageId="subcontract_view_certContrInfoPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/payCertInfo.jsff"
+            usageId="subcontract_view_payCertInfoPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF@ExecuteWithParams"
+            usageId="subcontract_view_contractSearchBTF_contractSearchBTF_ExecuteWithParamsPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/certificationSearch.jsff"
+            usageId="subcontract_view_certificationSearchPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF@ExecuteWithParams1"
+            usageId="subcontract_view_contractSearchBTF_contractSearchBTF_ExecuteWithParams1PageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/TaskFlow/payCertBTF.xml#payCertBTF@refreshCertification"
+            usageId="subcontract_view_payCertBTF_payCertBTF_refreshCertificationPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/Fragments/appContInfo.jsff"
+            usageId="subcontract_view_appContInfoPageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF@ExecuteWithParams2"
+            usageId="subcontract_view_contractSearchBTF_contractSearchBTF_ExecuteWithParams2PageDef"/>
+      <page path="/WEB-INF/oracle/apps/uikit/TaskFlow/ApplicationBTF.xml#ApplicationBTF@refreshApplication"
+            usageId="subcontract_view_ApplicationBTF_ApplicationBTF_refreshApplicationPageDef"/>
+   </pageMap>
+   <pageDefinitionUsages>
+      <page id="subcontract_view_partyInfoPageDef"
+            path="oracle.apps.uikit.Fragments.partyInfoPageDef"/>
+      <page id="subcontract_view_contractSearchBTF_contractSearchBTF_CreateInsertPageDef"
+            path="oracle.apps.uikit.TaskFlow.contractSearchBTF_contractSearchBTF_CreateInsertPageDef"/>
+      <page id="subcontract_view_contractSearchBTF_contractSearchBTF_ExecutePageDef"
+            path="oracle.apps.uikit.TaskFlow.contractSearchBTF_contractSearchBTF_ExecutePageDef"/>
+      <page id="subcontract_view_contrSearchPageDef"
+            path="subcontract.view.pageDefs.contrSearchPageDef"/>
+      <page id="subcontract_view_tempPageDef"
+            path="subcontract.view.pageDefs.tempPageDef"/>
+      <page id="subcontract_view_gaurInfoPageDef"
+            path="oracle.apps.uikit.Fragments.gaurInfoPageDef"/>
+      <page id="subcontract_view_payInfoPageDef"
+            path="oracle.apps.uikit.Fragments.payInfoPageDef"/>
+             <page id="subcontract_view_contrInfoPageDef"
+            path="oracle.apps.uikit.Fragments.contrInfoPageDef"/>
+                <page id="subcontract_view_homePageDef"
+          path="subcontract.view.pageDefs.homePageDef"/>
+      <page id="subcontract_view_OtherInfoPageDef"
+            path="oracle.apps.uikit.Fragments.OtherInfoPageDef"/>
+      <page id="subcontract_view_certContrInfoPageDef"
+            path="subcontract.view.pageDefs.certContrInfoPageDef"/>
+      <page id="subcontract_view_payCertInfoPageDef"
+            path="subcontract.view.pageDefs.payCertInfoPageDef"/>
+      <page id="subcontract_view_contractSearchBTF_contractSearchBTF_ExecuteWithParamsPageDef"
+            path="oracle.apps.uikit.TaskFlow.contractSearchBTF_contractSearchBTF_ExecuteWithParamsPageDef"/>
+      <page id="subcontract_view_certificationSearchPageDef"
+            path="oracle.apps.uikit.Fragments.certificationSearchPageDef"/>
+      <page id="subcontract_view_contractSearchBTF_contractSearchBTF_ExecuteWithParams1PageDef"
+            path="oracle.apps.uikit.TaskFlow.contractSearchBTF_contractSearchBTF_ExecuteWithParams1PageDef"/>
+      <page id="subcontract_view_payCertBTF_payCertBTF_refreshCertificationPageDef"
+            path="oracle.apps.uikit.TaskFlow.payCertBTF_payCertBTF_refreshCertificationPageDef"/>
+      <page id="subcontract_view_appContInfoPageDef"
+            path="oracle.apps.uikit.Fragments.appContInfoPageDef"/>
+      <page id="subcontract_view_contractSearchBTF_contractSearchBTF_ExecuteWithParams2PageDef"
+            path="oracle.apps.uikit.TaskFlow.contractSearchBTF_contractSearchBTF_ExecuteWithParams2PageDef"/>
+      <page id="subcontract_view_ApplicationBTF_ApplicationBTF_refreshApplicationPageDef"
+            path="oracle.apps.uikit.TaskFlow.ApplicationBTF_ApplicationBTF_refreshApplicationPageDef"/>
+   </pageDefinitionUsages>
+   <dataControlUsages>
+      <BC4JDataControl id="contractAMDataControl" Package="AppModule"
+                       FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                       SupportsTransactions="true" SupportsFindMode="true"
+                       SupportsRangesize="true" SupportsResetState="true"
+                       SupportsSortCollection="true"
+                       Configuration="contractAMLocal" syncMode="Immediate"
+                       xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+      <BC4JDataControl id="payCertAMDataControl" Package="AppModule"
+                       FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                       SupportsTransactions="true" SupportsFindMode="true"
+                       SupportsRangesize="true" SupportsResetState="true"
+                       SupportsSortCollection="true"
+                       Configuration="payCertAMLocal" syncMode="Immediate"
+                       xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+      <BC4JDataControl id="applicationAMDataControl" Package="AppModule"
+                       FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                       SupportsTransactions="true" SupportsFindMode="true"
+                       SupportsRangesize="true" SupportsResetState="true"
+                       SupportsSortCollection="true"
+                       Configuration="applicationAMLocal" syncMode="Immediate"
+                       xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+   </dataControlUsages>
+</Application>

@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="AppModule.contractAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="subcontract.model.SubContractModel" name="contractAMLocal" ApplicationName="AppModule.contractAM">
+         <Security AppModuleJndiName="AppModule.contractAM"/>
+         <Custom JDBCDataSource="contract"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="subcontract.model.SubContractModel" name="contractAMShared" ApplicationName="AppModule.contractAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="AppModule.contractAM"/>
+         <Custom JDBCDataSource="contract"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="AppModule.payCertAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="subcontract.model.SubContractModel" name="payCertAMLocal" ApplicationName="AppModule.payCertAM">
+         <Security AppModuleJndiName="AppModule.payCertAM"/>
+         <Custom JDBCDataSource="contract"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="subcontract.model.SubContractModel" name="payCertAMShared" ApplicationName="AppModule.payCertAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="AppModule.payCertAM"/>
+         <Custom JDBCDataSource="contract"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="AppModule.applicationAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="subcontract.model.SubContractModel" name="applicationAMLocal" ApplicationName="AppModule.applicationAM">
+         <Security AppModuleJndiName="AppModule.applicationAM"/>
+         <Custom JDBCDataSource="contract"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="subcontract.model.SubContractModel" name="applicationAMShared" ApplicationName="AppModule.applicationAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="AppModule.applicationAM"/>
+         <Custom JDBCDataSource="contract"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

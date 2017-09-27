@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="gaurInfoPageDef"
+                Package="oracle.apps.uikit.Fragments" SkipValidation="false">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxscContractGuaranteeVO2" RangeSize="25"
+              DataControl="contractAMDataControl"
+              id="XxscContractGuaranteeVO2Iterator"/>
+    <iterator id="XxscContractHeadersVO1Iterator" Binds="XxscContractHeadersVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="contractROVO1Iterator" Binds="contractROVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+    <iterator id="XxscContractLinesVO1Iterator" Binds="XxscContractLinesVO1"
+              DataControl="contractAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XxscContractGuaranteeVO2Iterator"
+          id="XxscContractGuaranteeVO2">
+      <nodeDefinition DefName="view.XxscContractGuaranteeVO"
+                      Name="XxscContractGuaranteeVO20">
+        <AttrNames>
+          <Item Value="ContGuarId"/>
+          <Item Value="ContHeaderId"/>
+          <Item Value="GuarCategory"/>
+          <Item Value="GuarType"/>
+          <Item Value="Institution"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="Duration"/>
+          <Item Value="Value"/>
+          <Item Value="Remarks"/>
+          <Item Value="RefNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="ContractNum">
+      <AttrNames>
+        <Item Value="ContractNum"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxscContractGuaranteeVO2Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="XxscContractGuaranteeVO2Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="contractAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="contractAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="DefectLiabPeriod">
+      <AttrNames>
+        <Item Value="DefectLiabPeriod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator"
+                     id="DefectLiabEndDate">
+      <AttrNames>
+        <Item Value="DefectLiabEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxscContractHeadersVO1Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxscContractHeadersVO1Iterator" StaticList="false"
+          Uses="LOV_DlpPeriodCategory" id="DlpPeriodCategory"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

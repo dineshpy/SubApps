@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth">
+          <f:facet name="center">
+            <af:panelGroupLayout id="pgl5" layout="vertical" halign="center"
+                                 inlineStyle="background-color:rgb(29,74,104); height:558.0px;">
+              <af:spacer width="10" height="70" id="s4"/>
+              <af:panelGroupLayout id="pgl4" halign="center">
+                <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                     halign="center" rendered="false">
+                  <af:panelGroupLayout id="pgl3" halign="center">
+                    <af:commandLink id="cl1">
+                      <af:panelGroupLayout id="pgl1" layout="vertical"
+                                           halign="center">
+                        <af:image source="/images/grid_matte_toolbox.png"
+                                  id="i1"/>
+                        <af:outputText value="outputText1" id="ot1"
+                                       inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                    </af:commandLink>
+                  </af:panelGroupLayout>
+                  <af:spacer width="40" height="10" id="s1"/>
+                  <af:panelGroupLayout id="panelGroupLayout1" halign="center">
+                    <af:commandLink id="commandLink1">
+                      <af:panelGroupLayout id="panelGroupLayout2"
+                                           layout="vertical" halign="center">
+                        <af:image source="/images/grid_matte_objects.png"
+                                  id="image1"/>
+                        <af:outputText value="outputText1" id="outputText1"
+                                       inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                    </af:commandLink>
+                  </af:panelGroupLayout>
+                  <af:spacer width="40" height="10" id="s2"/>
+                  <af:panelGroupLayout id="panelGroupLayout3" halign="center">
+                    <af:commandLink id="commandLink2">
+                      <af:panelGroupLayout id="panelGroupLayout4"
+                                           layout="vertical" halign="center">
+                        <af:image source="/images/grid_matte_directory.png"
+                                  id="image2"/>
+                        <af:outputText value="outputText1" id="outputText2"
+                                       inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                    </af:commandLink>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+                <af:spacer width="10" height="40" id="s3" rendered="false"/>
+                <af:panelGroupLayout id="panelGroupLayout5" layout="horizontal"
+                                     halign="center">
+                  <af:panelGroupLayout id="panelGroupLayout6" halign="center">
+                    <af:commandLink id="commandLink3" action="toHome">
+                      <af:panelGroupLayout id="panelGroupLayout7"
+                                           layout="vertical" halign="center">
+                        <af:image source="/images/grid_dot_shieldlock.png"
+                                  id="image3"/>
+                        <af:outputText value="Buy Contract" id="outputText3"
+                                       inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                      <af:setPropertyListener from="#{'/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF'}"
+                                              to="#{pageFlowScope.taskId}" type="action"/>
+                                               <af:setPropertyListener from="buy"
+                                              to="#{sessionScope.page}" type="action"/>
+                                                <af:setPropertyListener from="B"
+                                              to="#{sessionScope.intent}" type="action"/>
+                    </af:commandLink>
+                  </af:panelGroupLayout>
+                  <af:spacer width="40" height="10" id="spacer1"/>
+                     <af:panelGroupLayout id="pgl6" halign="center">
+                    <af:commandLink id="cl2" action="toHome">
+                      <af:panelGroupLayout id="pgl7"
+                                           layout="vertical" halign="center">
+                        <af:image source="/images/grid_dot_shieldapprove.png"
+                                  id="i2"/>
+                        <af:outputText value="Sell Contract" id="ot2"
+                                       inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                       <af:setPropertyListener from="#{'/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF'}"
+                                              to="#{pageFlowScope.taskId}" type="action"/>
+                                                 <af:setPropertyListener from="sell"
+                                              to="#{sessionScope.page}" type="action"/>
+                                                <af:setPropertyListener from="S"
+                                              to="#{sessionScope.intent}" type="action"/>
+                    </af:commandLink>
+                  </af:panelGroupLayout>
+                  <af:spacer width="40" height="10" id="s5"/>
+                     <af:panelGroupLayout id="pgl8" halign="center">
+                    <af:commandLink id="cl3" action="toHome">
+                      <af:panelGroupLayout id="pgl9"
+                                           layout="vertical" halign="center">
+                        <af:image source="/images/grid_dot_select.png"
+                                  id="i3"/>
+                        <af:outputText value="Contract Variation" id="ot3"
+                                       inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                         <af:setPropertyListener from="#{'/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF'}"
+                                              to="#{pageFlowScope.taskId}" type="action"/>
+                                                 <af:setPropertyListener from="variation"
+                                              to="#{sessionScope.page}" type="action"/>
+                    </af:commandLink>
+                  </af:panelGroupLayout>
+                  <af:spacer width="10" height="10" id="s6" rendered="false"/>
+                  <af:panelGroupLayout id="panelGroupLayout8" halign="center"
+                                       rendered="false">
+                    <af:commandLink id="commandLink4" action="toHome">
+                      <af:panelGroupLayout id="panelGroupLayout9"
+                                           layout="vertical" halign="center">
+                        <af:image source="/images/grid_dot_resolve_rtl.png"
+                                  id="image4"/>
+                        <af:outputText value="Payment Application " id="outputText4"
+                                       inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                    </af:commandLink>
+                  </af:panelGroupLayout>
+                  <af:spacer width="40" height="10" id="spacer2"/>
+                  <af:panelGroupLayout id="panelGroupLayout10" halign="center">
+                    <af:commandLink id="commandLink5" action="toHome">
+                      <af:panelGroupLayout id="panelGroupLayout11"
+                                           layout="vertical" halign="center">
+                        <af:image source="/images/grid_dot_recycle.png"
+                                  id="image5"/>
+                        <af:outputText value="Payment Certificate" id="outputText5"
+                                       inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                      </af:panelGroupLayout>
+                         <af:setPropertyListener from="#{'/WEB-INF/oracle/apps/uikit/TaskFlow/contractSearchBTF.xml#contractSearchBTF'}"
+                                              to="#{pageFlowScope.taskId}" type="action"/>
+                                                 <af:setPropertyListener from="certification"
+                                              to="#{sessionScope.page}" type="action"/>
+                    </af:commandLink>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

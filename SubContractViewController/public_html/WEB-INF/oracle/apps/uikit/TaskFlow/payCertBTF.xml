@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="payCertBTF">
+    <default-activity id="__24">refreshCertification</default-activity>
+    <transaction id="__14">
+      <new-transaction/>
+    </transaction>
+    <managed-bean id="__25">
+      <managed-bean-name id="__26">CertificationBean</managed-bean-name>
+      <managed-bean-class id="__21">backing.CertificationInfo</managed-bean-class>
+      <managed-bean-scope id="__22">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="certContrInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/certContrInfo.jsff</page>
+      <train-stop id="__2">
+        <display-name id="__16">Contract Information</display-name>
+      </train-stop>
+    </view>
+    <view id="payCertInfo">
+      <page>/WEB-INF/oracle/apps/uikit/Fragments/payCertInfo.jsff</page>
+      <train-stop id="__3">
+        <display-name id="__17">Certification Information</display-name>
+      </train-stop>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome id="__4">
+        <name>taskFlowReturn1</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="taskFlowReturn2">
+      <outcome id="__5">
+        <name>taskFlowReturn2</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="refreshCertification">
+      <method>#{bindings.refreshCertification.execute}</method>
+      <outcome id="__23">
+        <fixed-outcome>refreshCertification</fixed-outcome>
+      </outcome>
+    </method-call>
+    <train/>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">payCertInfo</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome id="__10">save</from-outcome>
+        <to-activity-id id="__9">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome id="__13">cancel</from-outcome>
+        <to-activity-id id="__12">taskFlowReturn2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__1">
+      <from-activity-id id="__15">refreshCertification</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome id="__19">refreshCertification</from-outcome>
+        <to-activity-id id="__20">certContrInfo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
