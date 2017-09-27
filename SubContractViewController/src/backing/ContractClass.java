@@ -23,7 +23,7 @@ import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewObject;
 
 //import view.backing.ADFUtils;
-
+//Dinesh Test
 
 public class ContractClass {
     private RichInputDate stdate;
